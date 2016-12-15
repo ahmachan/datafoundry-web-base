@@ -1,0 +1,121 @@
+.date-pick {
+    display: inline-block;
+}
+.date-pick .form-control {
+    width: 150px;
+    display: inline-block;
+    color: #333;
+    font-size: 12px;
+}
+.date-pick ul {
+    border: 1px solid #c9c9c9;
+    border-radius: 2px;
+    padding: 20px;
+}
+.date-pick ul li {
+    padding: 5px 0;
+    color: #666;
+    font-size: 12px;
+}
+.date-pick .btn {
+    color: #666;
+    background: none;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+    padding: 8px 13px;
+}
+.date-pick thead tr:last-child {
+    display: none;
+}
+.date-pick .text-muted {
+    display: none;
+}
+.date-pick .day-selected {
+    background: #fee9ca;
+}
+.date-pick .day-selected span {
+    color: #f39800;
+}
+.date-pick .day-end .btn {
+    background: #f39800;
+}
+.date-pick .day-end span {
+    color: #fff;
+}
+.date-pick .btn-info.active, .date-pick .btn-info:active, .date-pick .btn-info:focus{
+    background: #f39800;
+}
+.date-pick .btn-info.active span,
+.date-pick .btn-info:active span,
+.date-pick .btn-info:focus span {
+    color: #fff;
+}
+.date-pick .uib-title {
+    font-size: 14px;
+}
+.date-pick .uib-time:after {
+    color: #666;
+    margin: 0 15px 0 5px;
+}
+.date-pick .uib-time.hours:after {
+    content: '点';
+}
+.date-pick .uib-time.minutes:after {
+    content: '分';
+}
+.date-pick .uib-separator {
+    visibility: hidden;
+}
+.date-pick .uib-time input {
+    width: 80px!important;
+    height: 30px;
+    border: 1px solid #c9c9c9;
+    border-radius: 2px;
+    text-align: left;
+}
+.date-pick .uib-timepicker {
+    display: inline-block;
+    vertical-align: middle;
+}
+.date-pick .uib-timepicker tbody {
+    overflow: hidden;
+}
+.date-pick .uib-timepicker tbody .glyphicon {
+    font-size: 12px;
+}
+.date-pick .uib-timepicker tbody tr:first-child,
+.date-pick .uib-timepicker tbody tr:last-child {
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+.date-pick .uib-timepicker tbody tr .uib-increment {
+    position: relative;
+    top: -2px;
+}
+.date-pick .uib-timepicker tbody tr .uib-decrement {
+    position: relative;
+    top: -20px;
+}
+.date-pick .uib-timepicker tbody tr .hours {
+    left: 60px;
+}
+.date-pick .uib-timepicker tbody tr .minutes {
+    left: 165px;
+}
+.date-pick .uib-timepicker tbody tr td a{
+    padding: 0;
+}
+.date-pick .glyphicon-chevron-right:before {
+    content: "\e250"
+}
+.date-pick .glyphicon-chevron-left:before {
+    content: "\e251"
+}
+.date-pick .glyphicon-chevron-down:before {
+    content: "\e252"
+}
+.date-pick .glyphicon-chevron-up:before {
+    content: "\e253"
+}

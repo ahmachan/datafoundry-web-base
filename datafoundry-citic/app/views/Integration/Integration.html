@@ -1,0 +1,294 @@
+<div class="backing-service">
+    <div class="loader" ng-show="!repos">
+        <div class="loader-inner ball-clip-rotate-multiple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+<div ng-show="repos">
+    <uib-tabset class="tab-default" active="check">
+        <uib-tab index="1" style="width:auto;">
+            <uib-tab-heading style="width:468px">
+                <i class="fa2 fa2-public"></i>&nbsp;&nbsp;公开数据集
+            </uib-tab-heading>
+            <div class="tabs row" style='padding-left: 12px;position: relative;'>
+                <div  class='col-mb-1' style='margin-right: 20px;'>
+                    <label>数据分类</label>
+                </div>
+                <div class="sc col-mb-11" style='position: relative;top: -30px;left: 89px;width: 92%;'>
+                    <div class="btn-group ft col-mb-1" ng-repeat='item in repoclass' style='margin-bottom: 8px;'>
+                        <label class="btn" ng-class='{"active":classgrid.selectclass === $index}'
+                               ng-click='selectclass("selectclass", $index)'>{{item}}</label>
+                    </div>
+                </div>
+                <div class="sc col-mb-12 pull-left">
+
+                    <label style="margin-right: 30px;">数据标签</label>
+
+                    <div class="btn-group fw" ng-repeat='item in repolabel'>
+                        <label class="btn" ng-class="{'active':classgrid.selectsclabel === $index}"
+                               ng-click="selectsclabel('selectsclabel',$index)">{{item}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group col-sm-4 col-sm-offset-8 searchbar">
+                    <input type="text"
+                           class="form-control"
+
+                           placeholder="搜索数据名"
+
+                           ng-keyup=keyclasssearch($event)
+                           ng-model="grid.classtxt">
+                    <!--ng-model="txt" ng-focus="showTip=true;" -->
+                    <span class="input-group-btn" id=inputa>
+                        <a class="btn" ng-click="keyclasssearch('search')"></a>
+                    </span>
+                </div>
+            </div>
+            <!--<div ng-include="'views/Integration/backing_service_instance.html'">-->
+            <!--</div>-->
+
+            <div class='change' style="margin-top: 20px;">
+
+                <div class="row">
+                    <!--<div id=t{{items.id}} class="h2-border" ng-show="items.showTab"-->
+                    <!--style="margin-bottom: 15px;">-->
+                    <!--<span class='biaoti'>{{items.class}}</span>-->
+                    <!--<i class='xian'></i>-->
+                    <!--</div>-->
+                    <!--<h2 id=t{{items.id}} class="h2-border" ng-show="items.showTab"-->
+                    <!--style="margin-bottom: 15px;">-->
+                    <!--{{items.name}}</h2>-->
+                    <div class="row">
+                        <div class="fen" ng-repeat="item in repos">
+                            <div id=hui class="thumbnail">
+                                <div class="thumb-content">
+                                    <!--<p class='hui'><img src="components/bscard/img/images01_08.png">{{item.spec.metadata.providerDisplayName}}</p>-->
+                                    <!--<p><img src="components/bscard/img/images01_06.png">&nbsp;version</p>-->
+                                    <div class="thumb-slide">
+                                        <div class="thumb-op">
+                                            <small>{{item.description}}</small>
+                                            <!--<p class="thumb-btn">-->
+                                            <!--<a ng-if="!bkservice" class="btn btn-skyblue" href="javascript:;" ui-sref="console.backing_service_detail({name: item.metadata.name,type:item.metadata.annotations.Class})">-->
+                                            <!--查看详情</a>-->
+
+                                            <!--</p>-->
+                                        </div>
+
+                                        <div ng-if="!item.image_url" class="imageholder" style="background-image:url('components/bscard/img/images01_03.png');">
+                                            <p class='hui'>{{item.label}}</p>
+                                        </div>
+                                        <div ng-if="item.image_url" class="imageholder" style="background-image:url('{{item.image_url}}');background-color: #EAEBEF;">
+                                            <p class='hui'>{{item.label}}</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="caption">
+
+                                    <p class="bsname" style="color: #5a6378">{{item.display_name}}</p>
+
+                                    <!--<a class="btn btn-disabled" ng-if='item.bianhui' style='cursor:default;'>查看详情</a>-->
+                                    <a class="btn btn-orange"  ui-sref="console.Integration_detail({name: item.repo_name})">查看详情</a>
+                                    <!--<a class="btn btn-disabled" ng-if='item.bianhui && bkservice' style='cursor:default;'>申请实例</a>-->
+                                    <!--<a class="btn btn-orange" ng-if='item.biancheng && bkservice' ng-click="apply_instance(item.metadata.name)">申请实例</a>-->
+                                </div>
+                            </div>
+                            <!--<bs-card></bs-card>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </uib-tab>
+
+        <uib-tab index="2" style="width:auto;">
+            <uib-tab-heading style="white-space:nowrap;">
+
+
+                <i class="fa2 fa2-data"></i>&nbsp;&nbsp;数据集成服务
+
+            </uib-tab-heading>
+            <div class="tabs row" style='padding-left: 12px;position: relative;'>
+                <div  class='col-mb-1' style='margin-right: 20px;'>
+                    <label>服务分类</label>
+                </div>
+
+                <div class="sc col-mb-11" style='position: relative;top: -30px;left: 89px;width: 92%;'>
+                    <div class="btn-group ft col-mb-1" ng-repeat='item in insclass' style='margin-bottom: 8px;'>
+                        <label class="btn" ng-class='{"active":insgrid.selectclass == $index}'
+                               ng-click='select("selectclass", $index)'>{{item}}</label>
+                    </div>
+                </div>
+                <div class="sc col-mb-12 pull-left">
+                    <label>服务提供者</label>
+                    <div class="btn-group fw" ng-repeat='item in inslabel'>
+
+                        <label class="btn" style="text-transform: capitalize;" ng-class="{'active':insgrid.selectsclabel == $index}"
+
+                               ng-click="selectsc('selectsclabel',$index)">{{item}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style='margin: 0;'>
+                <div class="input-group col-sm-4 col-sm-offset-8 searchbar">
+                    <input type="text"
+                           class="form-control"
+
+                           placeholder="搜索数据名"
+
+                           ng-keyup=keysearch($event)
+                           ng-model="grid.txt">
+                    <!--ng-model="txt" ng-focus="showTip=true;" -->
+                    <span class="input-group-btn" id=input>
+                        <a class="btn" ng-click="keysearch('search')"></a>
+                    </span>
+                </div>
+            </div>
+            <div class='change' ng-repeat='items in ins'>
+                <div class="row">
+                    <div class="h2-border" ng-show="items.items.length" style="margin-bottom: 15px;">
+                        <span class='biaoti'>{{items.class}}</span>
+                        <i class='xian'></i>
+                    </div>
+                    <!--<h2 id=t{{items.id}} class="h2-border" ng-show="items.showTab"-->
+                    <!--style="margin-bottom: 15px;">-->
+                    <!--{{items.name}}</h2>-->
+                    <!--<div class="row">-->
+                    <!--<div class="fen"-->
+                    <!--ng-repeat="item in items.items">-->
+                    <!--&lt;!&ndash;<bs-card></bs-card>&ndash;&gt;-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <div class="row">
+                        <div class="fen" ng-repeat="item in items.items">
+                            <div class="thumbnail">
+                                <div class="thumb-content">
+                                    <!--<p class='hui'><img src="components/bscard/img/images01_08.png">{{item.spec.metadata.providerDisplayName}}</p>-->
+                                    <!--<p><img src="components/bscard/img/images01_06.png">&nbsp;version</p>-->
+                                    <div class="thumb-slide">
+                                        <div class="thumb-op">
+                                            <small>{{item.description}}</small>
+                                            <!--<p class="thumb-btn">-->
+                                            <!--<a ng-if="!bkservice" class="btn btn-skyblue" href="javascript:;" ui-sref="console.backing_service_detail({name: item.metadata.name,type:item.metadata.annotations.Class})">-->
+                                            <!--查看详情</a>-->
+
+                                            <!--</p>-->
+                                        </div>
+
+                                        <div ng-if="item.image_url" class="imageholder" style="background-image:url('{{item.image_url}}');">
+                                            <p class='hui inscard'style="">{{item.provider}}</p>
+                                        </div>
+                                        <div ng-if="!item.image_url" class="imageholder" style="background-image:url('components/bscard/img/images01_03.png');background-color: #EAEBEF;">
+                                            <p class='hui inscard'style="">{{item.provider}}</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="caption">
+
+                                    <p class="bsname" style="color: #5a6378">{{item.display_name}}</p>
+                                    <!--<a class="btn btn-disabled" ng-if='item.bianhui' ng-click="apply(item.service_id)" style='cursor:default;'>查看详情</a>-->
+                                    <a class="btn btn-orange" ui-sref="console.dataseverdetail({name: item.service_id,plan:item.display_name})">申请实例</a>
+
+                                    <!--<a class="btn btn-disabled" ng-if='item.bianhui && bkservice' style='cursor:default;'>申请实例</a>-->
+                                    <!--<a class="btn btn-orange" ng-if='item.biancheng && bkservice' ng-click="apply_instance(item.metadata.name)">申请实例</a>-->
+                                </div>
+                            </div>
+                            <!--<bs-card></bs-card>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="border:1px solid #e5e5e5;margin-top:30px;padding-top:10px;padding-bottom:10px;background:#f7f8fc;text-align: center;position:relative" ng-if="!ins"><p class="blank_block"><img src="pub/img/df_cion.png"></p></div>
+        </uib-tab>
+
+        <uib-tab index="3" style="width:auto;">
+            <uib-tab-heading style="white-space:nowrap;">
+                <i class="fa2 fa2-dataHub"></i>&nbsp;&nbsp;DataHub平台介绍
+            </uib-tab-heading>
+            <div ng-include="'views/Integration/backing_service_custom.html'">
+            </div>
+        </uib-tab>
+    </uib-tabset>
+</div>
+
+</div>
+<!--[if !IE]><!-->
+<script>
+    // 针对IE10
+    if (/*@cc_on!@*/false) {
+        document.documentElement.className += ' ie' + document.documentMode;
+    }
+    // 针对IE11及非IE浏览器，
+    // 因为IE11下document.documentMode为11，所以html标签上会加ie11样式类；
+    // 而非IE浏览器的document.documentMode为undefined，所以html标签上会加ieundefined样式类。
+    if (/*@cc_on!@*/true) {
+        document.documentElement.className += ' ie' + document.documentMode;
+    }
+</script>
+<!--<![endif]-->
+<style type="text/css">
+    .ie11 #inputa {
+        top: 9px;
+    }
+</style>
+
+<style>
+    .h2-border::after {
+        content: '';
+        border-bottom:none;
+    }
+    .h2-border {
+        height: 30px;
+        line-height: 30px;
+        position: relative;
+    }
+
+    .h2-border .xian {
+        /*float: left;*/
+        display: inline-block;
+        border-bottom: 1px solid #c9c9c9;
+        width: 100%;
+        /*margin-bottom: 5px;*/
+        position: absolute;
+        top: 50%;
+    }
+    .h2-border .biaoti {
+        float: left;
+        display: inline-block;
+        padding-right: 15px;
+        position: relative;
+        left: 0;
+        top: 0;
+        z-index: 2;
+    }
+    .fen {
+        float: left;
+        width:25%;
+        padding: 0 15px;
+    }
+    .btn.active, .btn:active {
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+
+    .backing-service .sc .btn {
+
+        /*width: 85px;*/
+    }
+
+    .fw:last-child .btn {
+        /*width: 85px;*/
+
+    }
+    /*#t0:after {*/
+        /*left: 75px;*/
+    /*}*/
+    /*#t4:after {*/
+        /*left: 80px;*/
+    /*}*/
+
+
+</style>

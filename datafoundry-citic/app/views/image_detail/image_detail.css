@@ -1,0 +1,30 @@
+.icon20-view {
+    background-image: url(img/view.png);
+}
+.icon20-log:hover {
+    background-image: url(img/view-active.png);
+}
+.icon20-version{
+    background-image: url(img/version.png);
+}
+.icon20-log:hover {
+    background-image: url(img/version-active.png);
+}
+.thesize{
+    width:100px;
+}
+.loading-box{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255,255,255,0.7);
+    z-index: 999;
+}
+.spinner {
+    margin: 250px auto;
+    width: 76px;
+    text-align: center;
+    display: block;
+}

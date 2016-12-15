@@ -1,0 +1,21 @@
+.application{
+    padding:100px 40px 0px;
+    background: #f7f8fb;
+    overflow: hidden;
+    color: #5a6378;
+}
+.appdetailtop{
+    font-size:18px;
+}
+.backapp{
+    color:#979aa2;
+    margin-right:20px;
+    cursor: pointer;
+}
+.appdetailcon{
+    padding:0px 100px;
+    margin-top:30px;
+}
+.tab-content{
+    background: #fff;
+}

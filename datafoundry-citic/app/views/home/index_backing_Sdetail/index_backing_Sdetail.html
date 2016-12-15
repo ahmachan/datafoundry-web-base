@@ -1,0 +1,124 @@
+<div class="idx_Sdt">
+    <div class="loader" ng-show="!data">
+        <div class="loader-inner ball-clip-rotate-multiple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div ng-show="data">
+        <div style="font-size: 18px;padding-bottom:35px;">
+            <span ui-sref="home.index_backing_service" class="backapp" >服务中心</span><span>服务详情</span></div>
+        <!--<div class="info">-->
+        <!--<div class="info-image" style='background-image: url({{data.spec.metadata.imageUrl}});background-repeat:no-repeat;background-position: center'>-->
+        <!--</div>-->
+        <!--<div class="info-desc">-->
+        <!--<h2 ng-bind="data.metadata.name"></h2>-->
+        <!--<p>类型: {{ltype}}</p>-->
+        <!--<p>提供者: {{data.spec.metadata.providerDisplayName}}</p>-->
+        <!--&lt;!&ndash;<p>版本: </p>&ndash;&gt;-->
+        <!--<p>服务文档: <a href="{{data.spec.metadata.supportUrl}}" target="view_window" class="href-orange">{{data.spec.metadata.supportUrl}}</a></p>-->
+        <!--<p>帮助文档: <a href="{{data.spec.metadata.documentationUrl}}" target="view_window" class="href-orange">{{data.spec.metadata.documentationUrl}}</a></p>-->
+        <!--</div>-->
+        <!--</div>-->
+        <div class="panel panel-default" style="margin-bottom: 50px">
+            <div class="row">
+                <div ng-if="!data.spec.metadata.imageUrl" class="col-sm-2" style="position: relative;border-right: 1px solid #c9c9c9;height: 125px;padding: 0;background-image:url(pub/img/box.png);background-position: center;background-repeat: no-repeat;">
+                </div>
+                <div ng-if="data.spec.metadata.imageUrl"class="col-sm-2" style="position: relative;border-right: 1px solid #c9c9c9;height: 125px;padding: 0;background-image:url({{data.spec.metadata.imageUrl}});background-position: center;background-repeat: no-repeat;background-size: 70px 70px;">
+                </div>
+                <div class="col-sm-10" style="padding-left: 0;padding-right: 0;">
+                    <div class="panel-heading">
+                                <span class="panel-title">
+                                   {{data.metadata.name}}
+                                </span>
+                        <a class="btn pull-right  btn-orange"
+                           style="margin-right: 20px;"
+                           ng-click="apply_instance(data.metadata.name)"
+                        >申请实例</a>
+                    </div>
+                    <div class="panel-body" style="padding-top:0px;padding-bottom:0px;">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="media media-sm">
+                                    <div class="media-body">
+                                        <p style="margin-top:10px;">类型</p>
+                                        <p style="margin-top:10px;">{{ltype}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="media media-sm">
+                                    <div class="media-body">
+                                        <p style="margin-top:10px;">提供者</p>
+                                        <p style="margin-top:10px;">{{data.spec.metadata.providerDisplayName}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="media media-sm">
+                                    <div class="media-body">
+                                        <p style="margin-top:10px;">服务文档</p>
+                                        <p style="margin-top:10px;">{{data.spec.metadata.supportUrl}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="media media-sm">
+                                    <div class="media-body">
+                                        <p style="margin-top:10px;">帮助文档</p>
+                                        <p style="margin-top:10px;">{{data.spec.metadata.documentationUrl}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 30px 50px;border: 1px solid #c9c9c9;">
+            <p style="font-size: 12px;color: #5a6378;line-height: 20px;">
+                {{data.spec.metadata.longDescription}}
+            </p>
+            <h3 style="font-size: 14px;color: #5a6378;margin-top: 36px;">套餐列表</h3>
+            <div ng-include="'views/backing_service_detail/plan.html'"></div>
+        </div>
+    </div>
+
+</div>
+<style>
+    .idx_Sdt{
+        padding:100px 40px 0px;
+        background: #f7f8fb;
+        overflow: hidden;
+        color: #5a6378;
+    }
+    .backapp {
+        color: #979aa2;
+        cursor: pointer;
+        margin-right: 20px;
+    }
+    .idx_Sdt .info .info-image {
+        border: 1px solid #c9c9c9;
+        border-radius: 2px;
+        float: left;
+        height: 100%;
+        margin-right: 20px;
+        width: 160px;
+    }
+    .idx_Sdt .info .info-desc {
+        border-bottom: 1px solid #c9c9c9;
+        height: 100%;
+        overflow: hidden;
+    }
+    .idx_Sdt .info .info-desc p {
+        color: #5a6378;
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+    .idx_Sdt .info .info-desc h2 {
+        color: #393f4f;
+        font-size: 16px;
+        margin: 10px 0;
+    }
+</style>

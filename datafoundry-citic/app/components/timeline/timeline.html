@@ -1,0 +1,134 @@
+<div class="timeline">
+    <ul>
+        <!--<li ng-repeat="item in data.items" ng-if="type=='build' || (type=='image' && item.status.phase=='Complete')">-->
+        <li ng-repeat="item in date.status.tags" ng-if='showimage'>
+            <label uib-tooltip="{{item.metadata.creationTimestamp || item.items[0].created | timescon}}">
+                <span class="dot"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                {{item.metadata.creationTimestamp || item.items[0].created || item.list.Created | dateRelative}}
+            </label>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-2" ng-if="type=='build'">
+                        <span class="icon12 icon12-{{item.status.phase}}"
+                              ng-class="{'fa-spin': item.status.phase == 'Running' || item.status.phase == 'Pending'}"></span>
+                        <!--switch to Chinese-->
+                        {{item.status.phase | phaseFilter}}
+                    </div>
+                    <div class="col-sm-3" uib-tooltip='{{item.spec.revision.git.ref || name }}:{{item.spec.revision.git.commit || item.tag || item.name | limitTo: 7}}'>
+                        <div  style='white-space:nowrap;overflow: hidden;'>
+                            <i class="fa fa-flag-o"></i>&nbsp;
+                            <!--<span ng-if="item.spec.revision.git.ref">-->
+                            <span>{{item.spec.revision.git.ref || name }}:{{item.spec.revision.git.commit || item.tag || item.name | limitTo: 7}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-2" ng-if="type=='image'"></div>
+                    <div class="col-sm-4">
+                        <span ng-if="type=='build'">
+                            构建时长:{{item.status.duration | duration}}
+                        </span>
+                    </div>
+                    <div class="col-sm-3 text-right" ng-if="type=='build'">
+                        <a ng-if="item.status.phase == 'Complete'"
+                           ui-sref="console.image_detail({bc: item.metadata.labels.buildconfig, name: item.spec.output.to.name})"
+                           class="icon25 icon25-forward" uib-tooltip="查看镜像"></a>
+                        <a ng-if="item.status.phase !== 'Pending' && item.status.phase !== 'Running' && item.status.phase !== 'New'"
+                           ng-click="delete($index)" class="icon25 icon25-delete" uib-tooltip="删除"
+                           href="javascript:;"></a>
+                        <a ng-if="item.status.phase == 'Pending' || item.status.phase == 'Running' || item.status.phase == 'New'"
+                           ng-click="stop($index)" class="icon25 icon25-stop" uib-tooltip="终止" href="javascript:;"></a>
+                        <a class="icon25 icon25-collapse" uib-tooltip="查看日志" ng-click="getLog($index,item)"
+                           href="javascript:;"></a>
+                    </div>
+                    <div class="col-sm-3 text-right" ng-if="type=='image'">
+                        <a class="icon25 icon25-download" uib-tooltip="拉取" href="javascript:;"
+                           ng-click="pull(item.name || $index)"></a>
+                        <a class="icon25 icon25-start" uib-tooltip="部署"
+                           ui-sref="console.service_create({image: item.bsi})"></a>
+                        <!--<a class="icon25 icon25-start" uib-tooltip="部署" ui-sref="console.service_create()"></a>-->
+                        <a class="icon25 icon25-delete" uib-tooltip="删除" href="javascript:;" ng-show='isshow'
+                           ng-click="delete($index)"></a>
+                    </div>
+                </div>
+            </div>
+            <div uib-collapse="!item.showLog">
+                <div class="well well-log" style='overflow: auto'>
+                    <pre id='sd'>{{item.buildLog}}</pre>
+                </div>
+            </div>
+
+        </li>
+        <li ng-repeat="item in data.items"
+            ng-if="!showimage || type=='build' || (type=='image' && item.status.phase=='Complete')">
+
+            <label uib-tooltip="{{item.metadata.creationTimestamp || item.items[0].created | timescon}}">
+                <span class="dot"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                {{item.metadata.creationTimestamp || item.items[0].created || item.list.Created | dateRelative}}
+            </label>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-2" ng-if="type=='build'">
+                        <span class="icon12 icon12-{{item.status.phase}}"
+                              ng-class="{'fa-spin': item.status.phase == 'Running' || item.status.phase == 'Pending'}"></span>
+                        <!--switch to Chinese-->
+                        {{item.status.phase | phaseFilter}}
+                    </div>
+
+                    <div class="col-sm-3 tell" style='position: relative;'>
+                        <div class=till style='position: absolute;top: -30px;padding: 0 8px;border-radius:3px;left: 18px;background-color: black;color: white'>
+                            {{item.spec.revision.git.ref || name }}:{{item.spec.revision.git.commit || item.tag || item.name | limitTo: 7}}</div>
+                        <div style='white-space:nowrap;overflow: hidden;text-overflow: ellipsis'>
+                            <i class="fa fa-flag-o"></i>&nbsp;
+                            <!--<span ng-if="item.spec.revision.git.ref">-->
+                            <span>{{item.spec.revision.git.ref || name }}:{{item.spec.revision.git.commit || item.tag || item.name | limitTo: 7}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-2" ng-if="type=='image'"></div>
+                    <div class="col-sm-4">
+                        <span ng-if="type=='build'">
+                            构建时长:{{item.status.duration | duration}}
+                        </span>
+                    </div>
+                    <div class="col-sm-3 text-right" ng-if="type=='build'">
+                        <a ng-if="item.status.phase == 'Complete'"
+                           ui-sref="console.image_detail({bc: item.metadata.labels.buildconfig, name: item.spec.output.to.name})"
+                           class="icon25 icon25-forward" uib-tooltip="查看镜像"></a>
+                        <a ng-if="item.status.phase !== 'Pending' && item.status.phase !== 'Running' && item.status.phase !== 'New'"
+                           ng-click="delete($index)" class="icon25 icon25-delete" uib-tooltip="删除"
+                           href="javascript:;"></a>
+                        <a ng-if="item.status.phase == 'Pending' || item.status.phase == 'Running' || item.status.phase == 'New'"
+                           ng-click="stop($index)" class="icon25 icon25-stop" uib-tooltip="终止" href="javascript:;"></a>
+                        <a class="icon25 icon25-collapse" uib-tooltip="查看日志" ng-click="getLog($index,item)"
+                           href="javascript:;"></a>
+                    </div>
+                    <div class="col-sm-3 text-right" ng-if="type=='image'">
+                        <a class="icon25 icon25-download" uib-tooltip="拉取" href="javascript:;"
+                           ng-click="pull(item.name || $index)"></a>
+                        <a class="icon25 icon25-start" uib-tooltip="部署"
+                           ui-sref="console.service_create({image: item.bsi})"></a>
+                        <!--<a class="icon25 icon25-start" uib-tooltip="部署" ui-sref="console.service_create()"></a>-->
+                        <a class="icon25 icon25-delete" uib-tooltip="删除" href="javascript:;" ng-show='isshow'
+                           ng-click="delete($index)"></a>
+                    </div>
+
+                </div>
+            </div>
+            <div uib-collapse="!item.showLog">
+                <div class="well well-log" style='overflow: auto'>
+                    <pre id='sa'>{{item.buildLog}}</pre>
+                </div>
+            </div>
+
+        </li>
+        <style>
+            .till{
+                display: none;
+            }
+            .tell:hover>.till{
+                display: block;
+            }
+        </style>
+    </ul>
+</div>
+
+
+

@@ -1,0 +1,146 @@
+<div class="image-detail">
+    <div class="loader" ng-if="!date">
+        <div class="loader-inner ball-clip-rotate-multiple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div ng-if="date">
+        <div class="panel panel-default" style="margin-bottom: 50px">
+            <div class="panel-heading">
+            <span class="panel-title">
+                <span class="icon25 icon25-panel-repository">
+                </span>&nbsp;&nbsp;{{name}}
+            </span>
+                <a class="btn pull-right btn-green"
+                   ng-if="date.status.tags.length>0"
+                   ng-disabled=false
+                   ui-sref="console.service_create({image:date.status.tags[0].items[0].dockerImageReference+'@'+date.status.tags[0].tag+'@'+date.metadata.name})">部署最新版本</a>
+                <a class="btn pull-right btn-orange"
+                   ng-if="!date.status.tags.length"
+                   ng-disabled=true>暂无最新版本</a>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="media media-sm">
+                            <div class="media-left">
+                                <i class="fa fa-clock-o fa-2x"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">更新时间</h4>
+                                <small uib-tooltip="{{date.status.tags[0].items[0].created | timescon}}">
+                                    {{date.status.tags[0].items[0].created | dateRelative}}
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="media media-sm">
+                            <div class="media-left">
+                                <i class="fa fa-flag-o fa-2x"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">最新版本</h4>
+                                <small>
+                                <span>
+                                {{name}}:{{date.status.tags[0].tag}}
+                            </span>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <uib-tabset class="tab-default">
+                <uib-tab index="1" ng-if="false">
+                    <uib-tab-heading>
+                        <i class="fa fa-file-o fa-lg"></i>&nbsp;&nbsp;概览
+                    </uib-tab-heading>
+                    <!--<div marked="readme || '暂无介绍'"></div>-->
+                </uib-tab>
+                <uib-tab index="2">
+                    <uib-tab-heading>
+                        <i class="fa fa-file-text-o fa-lg"></i>&nbsp;&nbsp;镜像版本
+                    </uib-tab-heading>
+                    <div class="timeline">
+                        <ul>
+                            <li ng-repeat="item in date.status.tags">
+                                <label uib-tooltip="{{item.items[0].created | timescon}}">
+                                    <span class="dot"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {{item.items[0].created | dateRelative}}
+                                </label>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div style='white-space:nowrap;overflow: hidden;text-overflow: ellipsis'>
+                                                <i class="fa fa-flag-o"></i>&nbsp;
+                                                <!--<span ng-if="item.spec.revision.git.ref">-->
+                                                <span>{{name}}:{{item.tag}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+
+                                        </div>
+                                        <div class="col-sm-4 text-right">
+                                            <a class="icon25 icon25-download" uib-tooltip="拉取" href="javascript:;"
+                                               ng-click="pull(item.tag)"></a>
+                                            <a class="icon25 icon25-start" uib-tooltip="部署"
+                                               ui-sref="console.service_create({image:item.items[0].dockerImageReference+'@'+item.tag+'@'+name})"></a>
+                                            <a class="icon25 icon25-delete" uib-tooltip="删除" href="javascript:;"
+                                               ng-click="delete($index)"></a>
+                                            <!--<a class="icon25 icon25-start" uib-tooltip="部署" ui-sref="console.service_create()"></a>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+
+
+</div>
+<style>
+    .creattime {
+        width: 26px;
+        height: 26px;
+        display: inline-block;
+        background: url("pub/img/clock.png")no-repeat;
+    }
+    .shoucang {
+        width: 26px;
+        height: 26px;
+        display: inline-block;
+        background: url("pub/img/shoucang.png")no-repeat;
+    }
+    .pulls {
+        width: 26px;
+        height: 26px;
+        display: inline-block;
+        background: url("pub/img/pull.png")no-repeat;
+    }
+
+    .star {
+        display: inline-block;
+        cursor: pointer;
+        width: 13px;
+        height: 13px;
+        background:url("pub/img/star.png");
+    }
+
+    .star:hover{
+        background:url("pub/img/starh.png");
+    }
+
+    .star.active {
+        background:url("pub/img/starh.png");
+    }
+</style>
+
+

@@ -1,0 +1,81 @@
+<div class="loading-box" ng-show=loaded>
+    <img class="spinner" src="pub/img/loading.gif">
+</div>
+<div>
+    <style>
+        .create:hover{
+            background-color: #e5993a;
+        }
+        .create:active{
+            background-color: #F8B551;
+        }
+        #arrow:hover {
+            background:url('views/create_constantly_volume/img/images_45.png');
+        }
+        .select {
+            background-color: white;
+            color: black;
+            height: 34px;
+            margin-top: 10px;
+            margin-left: 30px;
+        }
+        /*jia 20161118 add begin 新建持久化卷 */
+        .enduring_tit{text-align:center;font-size:16px;margin-top:40px;margin-bottom:30px;}
+        .price_one{font-size:20px;color:#f6a540;}
+        .rzslider .rz-bar{height:10px;}
+        .rzslider .rz-bar.rz-selection{background:#facf8e;}
+        .rzslider .rz-bar{background:#e6e9f2;}
+        .rzslider .rz-pointer:after,.rzslider .rz-pointer:hover:after,.rzslider .rz-pointer:active:after,.rzslider .rz-pointer .rz-active{background:none!important;}
+        .rzslider .rz-pointer{background:url('views/create_constantly_volume/img/vol_nor.png') no-repeat;width:21px;height:21px;margin-top:8px;
+            border-radius:0;-webkit-border-radius:0;-moz-border-radius:0;-webkit-transition: all 0.2s;-moz-transition: all 0.2s;transition: all 0.2s;}
+        .rzslider .rz-pointer:hover,.rzslider .rz-pointer:active{background:url('views/create_constantly_volume/img/vol_hover.png') no-repeat;}
+        .rzslider .rz-ticks .rz-tick{background:none;}
+        .rzslider .rz-ticks .rz-tick.rz-selected{background:none;}
+        .rzslider .rz-bubble{background:#000;border-radius:4px;padding:3px 8px;max-width:200px;color:#fff;font-size:12px;bottom:18px;
+            -webkit-transition: all 0.2s;-moz-transition: all 0.2s;transition: all 0.2s;}
+        /*.rzslider .rz-bubble:after{content:"";position:absolute;width:0;height:0;border-color:transparent;border-style:solid;*/
+        /*bottom:-4px;left:50%;margin-left:-5px;border-width:5px 5px 0;border-top-color:#000;}*/
+        /*jia 20161118 add end 新建持久化卷 */
+    </style>
+    <form class="form-horizontal" name="frm">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span style="font-size: 16px; color: #5a6378">新建持久化卷</span>
+            </div>
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label text-left" style="margin-top: 10px; color: #5a6378; font-size:14px; text-align: left; font-weight: normal;">持久化卷名称</label>
+                    <div class="col-sm-10" style="padding-right: 40px; ">
+                        <input type="text"
+                               name="username"
+                               class="form-control"
+                               ng-model="volume.name"
+                               onkeypress="if((event.keyCode > 31 && event.keyCode < 44) || (event.keyCode > 46 && event.keyCode < 48) || (event.keyCode > 57 && event.keyCode < 65) || (event.keyCode > 90 && event.keyCode < 97))event.returnValue = false;"
+                               placeholder="名称只能包括小写字母"
+                               style="margin-top: 10px">
+                        <small ng-if="err.valid" class="fa fa-info-circle err-tip" style="margin-top: 20px;">名称不合法</small>
+                        <small ng-if="err.blank" class="fa fa-info-circle err-tip" style="margin-top: 20px;">名称不能为空</small>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label text-left" style="margin-top: 10px; color: #5a6378; font-size:14px; text-align: left; font-weight: normal;">持久化卷容量</label>
+                    <div class="col-sm-10" style="padding-right: 40px; ">
+
+                        <p class="enduring_tit">您选择 <span class="price_one">{{slider.value}}</span> GB；每月花费 <san class="price_one">{{slider.value}}</san> 元</p>
+                        <div class="volume_modal">
+                            <rzslider rz-slider-model="slider.value" rz-slider-options="slider.options" ng-model="volume.size"></rzslider>
+                        </div>
+                        <small ng-if="grid.num" class="fa fa-info-circle err-tip" style="margin-top: 20px;">
+                            输入数值应在10-200之间(10的倍数)
+                        </small>
+                        <!--<img src="views/create_constantly_volume/img/images_43.png" id="arrow" ng-click="updateplan()">-->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <a href="javascript:;" ng-click="creat()" class="btn btn-block create" style="background-color: #F8B551; margin-top: 35px; color: white;">创建持久化卷</a>
+    </form>
+</div>

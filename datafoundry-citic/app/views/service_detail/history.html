@@ -1,0 +1,94 @@
+<style>
+    .spinner {
+        margin: 0px auto 0;
+        width: 76px;
+        display: block;
+        text-align: center;
+    }
+    .loading-box{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(255,255,255,0.7);
+        z-index: 999;
+    }
+
+    /*loading 动画*/
+    .spinner {
+        margin: 250px auto;
+        width: 76px;
+        text-align: center;
+        display: block;
+    }
+
+</style>
+
+<!--<div class="spinner" ng-show='lding'>-->
+    <!--<div class="bounce1"></div>-->
+    <!--<div class="bounce2"></div>-->
+<div class="loading-box" ng-show=lding>
+    <img class="spinner" src="pub/img/loading.gif" alt="">
+</div>
+    <!--<div class="bounce3"></div>-->
+    <!--<img ng-show='lding' class="spinner" src="pub/img/loading.gif" alt="">-->
+<!--</div>-->
+<div class="timeline">
+    <ul>
+        <li ng-repeat="item in rcs.items">
+            <label>
+                <span class="dot"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                {{item.metadata.creationTimestamp | dateRelative}}
+            </label>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <span class="icon12 icon12-{{item.metadata.annotations['openshift.io/deployment.phase']}}"
+                              ng-class="{'fa-spin': item.metadata.annotations['openshift.io/deployment.phase'] == 'Running' || item.metadata.annotations['openshift.io/deployment.phase'] == 'Pending'}"></span>
+                        <!--switch to Chinese-->
+                        {{item.metadata.annotations['openshift.io/deployment.phase'] | rcStatusFilter}}
+                    </div>
+                    <div class="col-sm-3">
+                        #{{item.metadata.annotations['openshift.io/deployment-config.latest-version']}}
+                    </div>
+                    <div class="col-sm-4">
+                        触发类型:
+                        <span ng-if="!item.dc.status.details.causes.length">未知</span>
+                        <span ng-if="item.dc.status.details.causes.length">
+                            <span ng-repeat="cause in item.dc.status.details.causes">
+                              <span ng-switch="cause.type">
+                                <span ng-switch-when="ImageChange">镜像变化</span>
+                                <span ng-switch-when="ConfigChange">配置变化</span>
+                                <span ng-switch-default>{{cause.type}}</span>
+                              </span>
+                            </span>
+                          </span>
+                    </div>
+                    <div class="col-sm-3 text-right">
+                        <!--<a class="icon25 icon25-collapse" ng-click="getLog($index)" uib-tooltip="查看日志"-->
+                           <!--href="javascript:;"></a>-->
+                        <!--<a class="faa faa-cogs" ng-click="getConfig($index)" uib-tooltip="查看配置" href="javascript:;"></a>-->
+                        <!--<a class="icon25 icon25-start" ng-click="startRc($index)"-->
+                           <!--ng-if="item.metadata.annotations['openshift.io/deployment.phase'] != 'Running'"-->
+                           <!--uib-tooltip="重新部署" href="javascript:;"></a>-->
+                        <!--<a class="icon25 icon25-stop" ng-click="stopRc($index)"-->
+                           <!--ng-if="item.metadata.annotations['openshift.io/deployment.phase'] == 'Running'"-->
+                           <!--uib-tooltip="停止" href="javascript:;"></a>-->
+                    </div>
+                </div>
+            </div>
+            <!--<div class="collapse" ng-class="{'in': item.showLog}">-->
+            <!--<div uib-collapse="!item.showLog">-->
+                <!--<div class="well well-log">-->
+                    <!--<pre id='sc'>{{item.log}}</pre>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div uib-collapse="!item.showConfig">-->
+                <!--<div ng-include="'views/service_detail/config.html'"></div>-->
+            <!--</div>-->
+
+        </li>
+    </ul>
+</div>
+

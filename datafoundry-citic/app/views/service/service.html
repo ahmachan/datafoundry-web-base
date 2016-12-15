@@ -1,0 +1,92 @@
+<div id="service">
+
+    <div class="loader" ng-if="!items">
+        <div class="loader-inner ball-clip-rotate-multiple">
+            <div></div>
+            <div></div>
+
+        </div>
+    </div>
+    <div ng-if="items">
+        <div class="row" style="margin-right:0;">
+            <div class="col-sm-4 col-xs-4 serv_jia_btn">
+                <a class="btn btn-green" ui-sref="console.service_create" style="margin-right:20px;">
+                    <i class="fa fa-plus fa-lg"></i>
+                    <span class="hidden-xs"> 新建服务</span>
+                </a>
+                <a class="btn" ng-click="reload()" style="background-color: #57d1ea;display:inline-block;">
+                    <!-- height: 34px;width: 36px;padding: 5px 5px; jias 20161027 change-->
+                    <i class="fa fa-refresh fa-lg"></i>
+                </a>
+            </div>
+            <div class="input-group col-sm-4 col-sm-offset-8 searchbar">
+                <input type="text"
+                       class="form-control"
+                       placeholder="搜索服务名称"
+                       ng-keyup=servicesearch($event)
+                       ng-model="grid.txt">
+                <!--ng-model="txt" ng-focus="showTip=true;" -->
+                    <span class="input-group-btn">
+                        <a class="btn" ng-click="servicesearch('search')"></a>
+                    </span>
+            </div>
+        </div>
+        <div class="table-responsive" style="margin-top: 20px;">
+            <table class="table table-hover table-default">
+                <tr>
+                    <th style="vertical-align: middle;padding-top:13px;padding-bottom:13px;">服务名称</th>
+                    <th style="vertical-align: middle;padding-top:13px;padding-bottom:13px;">最近部署时间</th>
+                    <th style="vertical-align: middle;padding-top:13px;padding-bottom:13px;">状态</th>
+                    <th style="vertical-align: middle;padding-top:13px;padding-bottom:13px;">pod个数<br>正常/期望</th>
+                    <th style="vertical-align: middle;padding-top:13px;padding-bottom:13px;">路由URL</th>
+                    <th style="vertical-align: middle;padding-top:13px;padding-bottom:13px;">后端服务</th>
+                    <th style='text-align: left; padding-left: 17px;vertical-align: middle;padding-top:13px;padding-bottom:13px;'>操作</th>
+                </tr>
+                <!--<tr ng-repeat="bc in items">-->
+                <tr ng-repeat="dc in items">
+
+
+                    <td style="white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow: hidden;display:block">
+                        <a class="href-orange" ui-sref="console.service_detail({name: dc.metadata.name})" uib-tooltip="{{dc.metadata.name}}" tooltip-placement="top">
+                            {{dc.metadata.name}}
+                        </a>
+                    </td>
+                    <td><span uib-tooltip="{{dc.metadata.creationTimestamp  | timescon}}">{{dc.metadata.creationTimestamp | dateRelative}}</span></td>
+                    <td>{{dc.ismn}}</td>
+                    <td><span style="color: #f6a540">{{dc.status.replicas || 0}}</span>/{{dc.spec.replicas}}</td>
+                    <td>
+                        <a class="href-orange" ng-if="dc.ismn=='正常'" href="http://{{dc.route.spec.host}}" target="_blank">{{dc.route.spec.host}}</a>
+                        <a class="href-orange" style="color: #5B6177;cursor: no-drop;" ng-if="dc.ismn!=='正常'" target="_blank">{{dc.route.spec.host}}</a>
+                    </td>
+                    <td>{{dc.bsi || '未绑定'}}</td>
+                    <td>
+                        <a class="icon25 icon25-start" ng-click="startDc($index)"  ng-if="dc.ismn=='未启动'" uib-tooltip="启动" href="javascript:;"></a>
+                        <a class="icon25 icon25-stop" ng-click="stopDc($index)" ng-if="dc.ismn!='未启动'" uib-tooltip="停止" href="javascript:;"></a>
+                    </td>
+                </tr>
+                <tr>
+
+                  <td colspan="7" style="text-align: center;background: #fff;position:relative" ng-if="items.length===0"><p class="blank_block"><img src="pub/img/df_cion.png"><span class="blank_tit"> {{text}}</span></p></td>
+
+                </tr>
+            </table>
+            <div class="text-right" ng-if="grid.total > 10">
+                <uib-pagination class="pagination"
+                                ng-model="grid.page"
+                                total-items="grid.total"
+                                items-per-page="grid.size"
+                                class="pagination-sm"
+                                boundary-links="true"
+                                max-size="12"
+                                rotate="true"
+                                previous-text="上一页"
+                                next-text="下一页"
+                                first-text="首页"
+                                last-text="末页">
+                </uib-pagination>
+            </div>
+
+        </div>
+    </div>
+
+</div>

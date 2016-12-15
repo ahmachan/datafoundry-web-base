@@ -1,0 +1,72 @@
+.messlist .tab-default {
+    overflow: auto;
+}
+.recycle {
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    margin-top: -1px;
+    display: inline-block;
+    background: url(../../pub/img/images_22.png)no-repeat;
+}
+.recycle:hover {
+    background: url(../../pub/img/images_24.png)no-repeat;
+}
+.search {
+     padding: 0;
+     width: 34px;
+     margin-left: 15px;
+     margin-top: -3px;
+     height: 34px;
+     background:url(../../pub/img/search.png)no-repeat center #f7f8fb;
+     line-height: 36px;
+     border: 1px solid #eaebef;
+ }
+.search:hover{
+    background:url(../../pub/img/search-focus.png)no-repeat center #f7f8fb;
+
+}
+.timeline ul > li > div.container-fluid {
+    margin-left: 50px;
+}
+.radios {
+    position: absolute;
+    top: 37px;
+    left: 20px;
+}
+.users{
+    font-size: 12px;
+    /*padding-left: 0;*/
+}
+.accept {
+    width: 50px;
+    height: 24px;
+    padding: 0;
+    font-size: 12px;
+    line-height: 24px;
+    margin-right: 40px;
+}
+.accept:hover {
+    background-color: #469450;
+}
+.accepts {
+    padding-left: 50px;
+}
+.dianj {
+    background-color: #fff;
+    border: 1px solid #5a6378;
+    color:#5a6378;
+    border-radius: 2px;
+}
+.icon27 {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: url(/app/pub/img/images_27.png);
+    position: relative;
+    top: 3px;
+    margin-right: 10px;
+}
+.icon29 {
+    background: url(/app/pub/img/images_29.png);
+}

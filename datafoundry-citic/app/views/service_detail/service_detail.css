@@ -1,0 +1,61 @@
+.pod-config {
+    margin-left: 30px;
+    font-size: 12px;
+}
+.pod-config > h2 {
+    font-size: 14px;
+    font-weight: normal;
+    margin: 30px 0 20px 0;
+}
+.pod-config h3 {
+    font-size: 12px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+.pod-config p {
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.pod-config .panel-heading {
+    font-size: 14px;
+}
+.pod-config .tag {
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+    border: 1px solid #c9c9c9;
+    border-radius: 2px;
+    padding: 3px 15px;
+}
+
+.text-Succeeded {
+    color: #55c45f;
+}
+.text-Pending {
+    color: #FF0000;
+}
+
+.service-ctrl > h2 {
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0 0 5px 0;
+}
+.service-ctrl hr {
+    margin: 0 0 30px 0;;
+}
+.dropdown-menu > li > a {
+    font-size: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 30px;
+    text-overflow: ellipsis;
+}
+.btn_file{
+    color: #5a6378;margin-right:0px;text-shadow:0 0 0 #fff;border: none;border-left: 1px solid #c9c9c9;background: #e6e9f2;padding: 5px 12px;
+}
+.btn_file:hover{
+    background: #5a6378;
+}

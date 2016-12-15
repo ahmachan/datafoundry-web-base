@@ -1,0 +1,36 @@
+.service-create .tab-cube {
+    display: inline-block;
+    width: 300px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #5a6378;
+    border-radius: 2px;
+    text-decoration: none;
+    color: #5a6378;
+    cursor: pointer;
+}
+.service-create .tab-cube:active, .service-create .tab-cube:hover, .service-create .tab-cube.active {
+    border: 1px solid #55c45f;
+    color: #55c45f;
+}
+.bgcgray {
+    background-color: #c9c9c9;
+}
+.dropdown-menu > li > a {
+    font-size: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 30px;
+    text-overflow: ellipsis;
+}
+.btn_file{
+    color: #5a6378;margin-right:0px;text-shadow:0 0 0 #fff;border: none;border-left: 1px solid #c9c9c9;background: #e6e9f2;padding: 5px 12px;
+}
+.btn_file:hover{
+    background: #5a6378;
+}

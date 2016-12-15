@@ -1,0 +1,96 @@
+<div class="modal-header">
+    <h5 class="modal-title">
+        <img style='margin-right: 2px;margin-bottom: 2px;' src="pub/img/images_41.png" alt="">
+        新增绑定
+        <a ng-click="cancel()" class="close"><span aria-hidden="true">&times;</span></a>
+    </h5>
+</div>
+<div class="modal-body" style="padding: 20px;">
+    <div class="is-box">
+        <div class="box-right">
+            <h2 class="text-left">选择需要绑定的服务</h2>
+            <div class="is-box-search">
+                <input type="text" class="form-control" ng-model="txt" placeholder="服务名称" ng-click="search(txt)">
+            </div>
+            <div class="is-box-wrap">
+                <ul>
+                    <li ng-repeat="item in items">
+                        <a href="javascript:;" ng-class="{'active': item.checked}" ng-click="item.checked = !item.checked">
+                            <i class="faa faa-check"></i>&nbsp;&nbsp;{{item.metadata.name}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-gray" ng-click="cancel()">取消</button>
+    <button class="btn btn-orange" ng-click="ok()">确认</button>
+</div>
+
+<style>
+    .modal-default.modal-foo {
+        margin-top: -300px;
+    }
+    .is-box {
+        overflow: hidden;
+        border: 1px solid #c9c9c9;
+        border-radius: 2px;
+        position: relative;
+        height: 280px;
+    }
+    .is-box .box-fix-left,
+    .is-box .box-right,
+    .is-box .is-box-wrap {
+        height: 100%;
+    }
+    .is-box h2 {
+        font-size: 14px;
+        background: #f5f6fa;
+        margin: 0;
+        padding: 10px;
+        color: #393f4f;
+    }
+    .is-box .box-right {
+        overflow: hidden;
+    }
+    .is-box ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .is-box ul li a {
+        display: block;
+        padding: 12px 30px;
+        text-align: left;
+    }
+    .is-box ul li a:active {
+        color: #5a6378;
+    }
+    .is-box ul li a:focus {
+        text-decoration: none;
+    }
+    .is-box ul li a.active {
+        background: #e5e6ea;
+        color: #5a6378;
+    }
+    .is-box .box-right ul li a {
+        color: #5a6378;
+        text-decoration: none;
+    }
+    .is-box .box-right ul li a.active {
+        background: #f5f6fa;
+    }
+    .is-box .is-box-wrap {
+        height: 199px;
+        overflow: scroll;
+    }
+    .is-box .is-box-search {
+        padding: 5px 15px;
+        background: #e6e9f2;
+    }
+    .is-box .is-box-search input {
+        background: #f5f6fa;
+    }
+</style>

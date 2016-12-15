@@ -1,0 +1,357 @@
+<div id="user">
+    <div class="loader" ng-show="!orgcan">
+        <div class="loader-inner ball-clip-rotate-multiple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div ng-show="true">
+        <div ng-show="orgcan">
+
+            <uib-tabset class="tab-default">
+                <!--<uib-tab index="1">-->
+                <!--<uib-tab-heading>-->
+                <!--<i class="planbg"></i>&nbsp;&nbsp;套餐管理-->
+                <!--</uib-tab-heading>-->
+                <!--<div class="row" style="margin-bottom: 30px;">-->
+                <!--<h5 class='col-md-12 buy'>您已订购的套餐</h5>-->
+                <!--<section class='col-md-12'>-->
+                <!--<div class="col-md-3">-->
+                <!--<figure class="plan">-->
+                <!--<figcaption>计费资源</figcaption>-->
+                <!--<p class=planb><span>XS高级版套餐</span></p>-->
+                <!--<article>-->
+                <!--<div>-->
+                <!--<div class="cpu  pull-left" style='margin-left: 5px;'>-->
+                <!--<span class="subtitle">CPU</span>-->
+                <!--<span class=peie style='margin-left: 10px;'>1X</span>-->
+                <!--</div>-->
+                <!--<div class="memory pull-right" style='margin-right: 5px;'>-->
+                <!--<span class="subtitle">内存</span>-->
+                <!--<span class=peie style='margin-left: 10px;'>2G</span>-->
+                <!--</div>-->
+
+                <!--</div>-->
+                <!--</article>-->
+                <!--<div class='meiy'>-->
+                <!--<span class="meiyue">-->
+                <!--￥466/月-->
+                <!--</span>-->
+                <!--</div>-->
+                <!--<p>还有20天到期</p>-->
+                <!--<button class='btn btn-orange'>更改套餐</button>-->
+                <!--</figure>-->
+                <!--</div>-->
+                <!--<div class="col-md-3">-->
+                <!--<figure class="plan">-->
+                <!--<figcaption>储存资源</figcaption>-->
+                <!--<p class=planb><span>XS高级版套餐</span></p>-->
+                <!--<article>-->
+                <!--<div>-->
+                <!--<div class="cpu  pull-left" style='margin-left: 5px;'>-->
+                <!--<span class="subtitle">CPU</span>-->
+                <!--<span class=peie style='margin-left: 10px;'>1X</span>-->
+                <!--</div>-->
+                <!--<div class="memory pull-right" style='margin-right: 5px;'>-->
+                <!--<span class="subtitle">内存</span>-->
+                <!--<span class=peie style='margin-left: 10px;'>2G</span>-->
+                <!--</div>-->
+
+                <!--</div>-->
+                <!--</article>-->
+                <!--<div class='meiy'>-->
+                <!--<span class="mianfei">-->
+                <!--免费-->
+                <!--</span>-->
+                <!--</div>-->
+                <!--<p>还有20天到期</p>-->
+                <!--<button class='btn btn-orange'>更改套餐</button>-->
+                <!--</figure>-->
+                <!--</div>-->
+                <!--<div class="col-md-3">-->
+                <!--<figure class="plan">-->
+                <!--<figcaption>网络资源</figcaption>-->
+                <!--<div class=circle>-->
+
+                <!--</div>-->
+                <!--<p class='notbuy'>您还没有订购套餐</p>-->
+                <!--<button class='btn btn-orange'>更改套餐</button>-->
+                <!--</figure>-->
+                <!--</div>-->
+                <!--<div class="col-md-3">-->
+                <!--<figure class="plan">-->
+                <!--<figcaption>团队协作</figcaption>-->
+                <!--<p class=planb><span>XS高级版套餐</span></p>-->
+                <!--<article>-->
+                <!--<div>-->
+                <!--<div class="cpu  pull-left" style='margin-left: 5px;'>-->
+                <!--<span class="subtitle">CPU</span>-->
+                <!--<span class=peie style='margin-left: 10px;'>1X</span>-->
+                <!--</div>-->
+                <!--<div class="memory pull-right" style='margin-right: 5px;'>-->
+                <!--<span class="subtitle">内存</span>-->
+                <!--<span class=peie style='margin-left: 10px;'>2G</span>-->
+                <!--</div>-->
+
+                <!--</div>-->
+                <!--</article>-->
+                <!--<div class='meiy'>-->
+                <!--<span class="meiyue">-->
+                <!--￥466/月-->
+                <!--</span>-->
+                <!--</div>-->
+                <!--<p>还有20天到期</p>-->
+                <!--<button class='btn btn-orange'>更改套餐</button>-->
+                <!--</figure>-->
+                <!--</div>-->
+
+                <!--</section>-->
+                <!--</div>-->
+
+                <!--</uib-tab>-->
+                <!--<uib-tab index="2">-->
+                <!--<uib-tab-heading>-->
+                <!--<i class="accountbg"></i>&nbsp;&nbsp;账户信息-->
+                <!--</uib-tab-heading>-->
+                <!--<div class="row" style="margin-bottom: 30px;">-->
+                <!--<h5 class='col-md-12 buy'>账户余额:-->
+                <!--<span style='color:#F8B551; padding-left: 5px;'>34.54</span>元-->
+                <!--<a class='btn btn-green' style='width: 45px;height: 24px;padding: 2px;margin-left: 15px; margin-top: -5px;'>充值</a></h5>-->
+                <!--<div id="tabbtn">-->
+                <!--<uib-tabset class="tab-default">-->
+                <!--<uib-tab index="1">-->
+                <!--<uib-tab-heading class='head'>-->
+                <!--充值记录-->
+                <!--</uib-tab-heading>-->
+                <!--&lt;!&ndash;<date-pick st="grid.st" et="grid.et"></date-pick>&ndash;&gt;-->
+                <!--<div style="margin-bottom: 15px;">-->
+                <!--<div class="dropdown dropdown-select userselect" style="width: 120px;">-->
+                <!--<button class="btn dropdown-toggle" data-toggle="dropdown">-->
+                <!--<span>{{date || '储值方式'}}</span>-->
+                <!--<span class="caret"></span>-->
+                <!--</button>-->
+                <!--<ul class="dropdown-menu">-->
+                <!--<li>-->
+                <!--<a href="javascript:;" ng-click="dc.spec.template.spec.restartPolicy = 'Always'">Always</a>-->
+                <!--<a href="javascript:;" ng-click="dc.spec.template.spec.restartPolicy = 'OnFailure'">OnFailure</a>-->
+                <!--<a href="javascript:;" ng-click="dc.spec.template.spec.restartPolicy = 'Never'">Never</a>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--<date-pick st="grid.st" et="grid.et"></date-pick>-->
+                <!--<a style="" href="javascript:;" class="btn btn-orange search"-->
+                <!--ng-click="search()"></a>-->
+                <!--</div>-->
+                <!--<div>-->
+                <!--<div>-->
+                <!--<div class="timeline" style="padding-top:20px;">-->
+                <!--<ul>-->
+                <!--<li>-->
+                <!--<label uib-tooltip="1111">-->
+                <!--<span class="dot"></span>&nbsp;&nbsp;&nbsp;&nbsp;11:11-->
+                <!--</label>-->
+                <!--<div class="container-fluid">-->
+                <!--<div class="row">-->
+                <!--<div class="col-md-4">充值金额: <b class='blod'>￥123</b></div>-->
+                <!--<div class="col-md-4" >账户余额:<b class='blod'>￥123</b></div>-->
+                <!--<div class="col-md-4" style="text-align: right">-->
+                <!--<span class='payway'>支付方式:<b class='blod'>支付宝</b></span>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <!--&lt;!&ndash;<c-timeline name="bcName" type="taobao"></c-timeline>&ndash;&gt;-->
+                <!--</div>-->
+                <!--</uib-tab>-->
+                <!--<uib-tab index="2">-->
+                <!--<uib-tab-heading class='head'>-->
+                <!--账单查询-->
+                <!--</uib-tab-heading>-->
+                <!--<div>-->
+                <!--<div style="margin-bottom: 15px;">-->
+                <!--<date-pick st="grid.st" et="grid.et"></date-pick>-->
+                <!--<a style="" href="javascript:;" class="btn btn-orange search"-->
+                <!--ng-click="search()"></a>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="timeline" style="padding-top:20px;">-->
+                <!--<ul>-->
+                <!--<li>-->
+                <!--<label uib-tooltip="账单查询">-->
+                <!--<span class="dot"></span>&nbsp;&nbsp;&nbsp;&nbsp;-->
+                <!--</label>-->
+                <!--<div class="container-fluid">-->
+                <!--<div class="row">-->
+                <!--<div class="col-md-4">账单月:2015-2</div>-->
+                <!--<div class="col-md-4">金额:2345</div>-->
+                <!--<div class="col-md-4" style="text-align: right">-->
+                <!--<a class="icon25 icon25-collapse" uib-tooltip="费用明细" ng-click=""  data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" href="javascript:;"></a>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="container-fluid collapse"-->
+                <!--style="margin-top:30px;"-->
+                <!--id="collapseExample">-->
+                <!--<table class="table searchbill">-->
+                <!--<tr>-->
+                <!--<th style="border-top: none;">扣费时间</th>-->
+                <!--<th style="border-top: none;">套餐类别</th>-->
+                <!--<th style="border-top: none;">费用项目</th>-->
+                <!--<th style="border-top: none;">金额</th>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                <!--<td>2016-2-10</td>-->
+                <!--<td>网络资源</td>-->
+                <!--<td>XL专业版</td>-->
+                <!--<td>2345</td>-->
+                <!--</tr>-->
+                <!--</table>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</uib-tab>-->
+                <!--</uib-tabset>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</uib-tab>-->
+                <uib-tab index="3">
+                    <uib-tab-heading>
+                        <i class="orgbg"></i>&nbsp;&nbsp;组织管理
+                    </uib-tab-heading>
+                    <div class="row" style="margin-bottom: 30px;">
+                        <h5 class='col-md-12 buy' style='margin-bottom: 10px;'><span class=pull-left>{{myorgname}}</span>
+                            <!--<a uib-tooltip="删除组织" href='javascript:;' ng-click='deletezz()' class='recycle pull-left'></a>-->
+                        </h5>
+                        <!--<p class='creattime'><span uib-tooltip="{{orgcon.creation_time | timescon}}">创建于&nbsp;{{orgcon.creation_time | dateRelative}}</span></p>-->
+                        <div class=content style="padding:20px 0px;line-height: 40px; width:916px">
+                            <p>成员信息<a href="javascript:;" style="line-height: 40px; color: #55c45f"
+                                      ng-click="addpeople()">
+                                <i class="fa fa-plus-circle fa-lg" style="margin-left: 15px;"></i>
+                            </a>&nbsp;&nbsp;<span
+                                    style="font-weight: normal;line-height: 40px; color: #55c45f;">添加新成员</span></p>
+                        </div>
+
+                        <section class='orglist'>
+                            <div class="row">
+                                <div class="col-md-1" style="padding-top: 8px;">
+                                    <h3 style="white-space:nowrap;">管理员</h3>
+                                </div>
+                                <div class="col-md-11"
+                                     style='padding-bottom: 30px;padding-left: 0;padding-right: 0;border-bottom: 1px solid #E6E9F2;'>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-default sub-table">
+                                            <tbody>
+                                            <tr>
+                                                <th>用户名</th>
+                                                <!--<th>邮箱</th>-->
+                                                <th>加入时间</th>
+                                                <!--<th>授权人</th>-->
+                                                <th>操作</th>
+                                            </tr>
+                                            <tr ng-repeat='member in rootmembers'>
+                                                <td style="width: 33%;">{{member.name}}</td>
+                                                <!--<td>{{member.member_name}}@163.com</td>-->
+                                                <td style="width: 33%;">{{member.jointime | timescon}}</td>
+                                                <!--<td>{{member.privileged_by}}</td>-->
+                                                <td style="width: 34%;text-align: center;">
+                                                    <!--<div  class="dropdown dropdown-select" style="width: 80px; height: 24px;margin-bottom: 10px;">-->
+                                                    <!--<button class="btn dropdown-toggle"-->
+                                                    <!--data-toggle="dropdown"-->
+                                                    <!--style="width: 80px; height: 24px;padding-top: 0;padding-bottom: 0;">-->
+                                                    <!--<span>{{date ||'更改权限'}}</span>-->
+                                                    <!--<span class="caret"></span>-->
+                                                    <!--</button>-->
+                                                    <!--<ul class="dropdown-menu">-->
+                                                    <!--<li>-->
+                                                    <!--<a href="javascript:;" ng-click="changetomember($index)">成员</a>-->
+
+                                                    <!--</li>-->
+                                                    <!--</ul>-->
+                                                    <!--</div>-->
+                                                     <span href="javascript:;"
+                                                           style='width: 45px; visibility: hidden'
+                                                           ng-if='member.name===user.metadata.name'
+                                                           class='btn btn-orange btns'>离开组织</span>
+                                                    <a href="javascript:;"
+                                                       ng-click='remove($index)'
+                                                       ng-if='member.name!==user.metadata.name'
+                                                       class='btn btn-orange btns' id="remove">移除</a>
+                                                </td>
+                                                <!-- end ngRepeat: port in portsArr -->
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style='margin-top: 30px; margin-bottom: -40px'>
+                                <div class="col-md-1" style="padding-top: 8px;">
+                                    <h3>成员</h3>
+                                </div>
+                                <div class="col-md-11" style='padding-bottom: 30px;padding-left: 0;
+                        padding-right: 0;'>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-default sub-table">
+                                            <tbody>
+                                            <tr>
+                                                <th>用户名</th>
+                                                <!--<th>邮箱</th>-->
+                                                <th>加入时间</th>
+                                                <!--<th>授权人</th>-->
+                                                <th>操作</th>
+                                            </tr>
+                                            <tr ng-repeat='member in norootmembers'>
+                                                <td style="width: 33%;">{{member.name}}</td>
+                                                <!--<td>{{member.member_name}}@163.com</td>-->
+                                                <td style="width: 33%;">{{member.jointime | timescon}}</td>
+                                                <!--<td>{{member.privileged_by}}</td>-->
+                                                <td style="width: 34%;text-align: center;">
+                                                    <!--<div class="dropdown dropdown-select" style="width: 80px; height: 24px;margin-bottom: 10px;">-->
+                                                    <!--<button class="btn dropdown-toggle" data-toggle="dropdown" style="width: 80px; height: 24px;padding-top: 0;padding-bottom: 0;">-->
+                                                    <!--<span>{{date ||'更改权限'}}</span>-->
+                                                    <!--<span class="caret"></span>-->
+                                                    <!--</button>-->
+                                                    <!--<ul class="dropdown-menu">-->
+                                                    <!--<li>-->
+                                                    <!--<a href="javascript:;" ng-click="changetoadmin($index)">管理员</a>-->
+                                                    <!--</li>-->
+                                                    <!--</ul>-->
+                                                    <!--</div>-->
+                                                    <!--<a href="javascript:;"-->
+                                                       <!--ng-click='leave()'-->
+                                                       <!--style='width: 80px;margin-right: -35px;'-->
+                                                       <!--ng-if='member.name===user.metadata.name'-->
+                                                       <!--class='btn btn-orange btns' id="leavefmem">离开组织</a>-->
+                                                    <span href="javascript:;"
+                                                          style='width: 45px; visibility: hidden'
+                                                          ng-if='member.name===user.metadata.name'
+                                                          class='btn btn-orange btns'>离开组织</span>
+                                                    <a href="javascript:;"
+                                                       ng-click='removenotroot($index)'
+                                                       ng-if='member.name!==user.metadata.name'
+                                                       class='btn btn-orange btns' id="removefmem">移除</a>
+                                                    <!--<a href="javascript:;" class='btn btn-orange btns'>移除</a>-->
+                                                </td> <!-- end ngRepeat: port in portsArr -->
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+
+                </uib-tab>
+
+            </uib-tabset>
+        </div>
+
+    </div>
+</div>
+

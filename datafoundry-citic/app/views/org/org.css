@@ -1,0 +1,336 @@
+
+.search {
+    padding: 0;
+    width: 34px;
+    margin-left: 15px;
+    margin-top: -3px;
+    height: 34px;
+    background:url(../../pub/img/search.png)no-repeat center #f7f8fb;
+    line-height: 36px;
+    border: 1px solid #eaebef;
+}
+.search:hover{
+    background:url(../../pub/img/search-focus.png)no-repeat center #f7f8fb;
+
+}
+#tabbtn .nav-link {
+    padding: 0;
+    /*margin: 10px 15px;*/
+    border: none;
+    border-bottom: 1px solid #eaebef;
+}
+
+
+
+#tabbtn .nav-tabs > li {
+    width: 120px;
+    margin-left: 30px;
+}
+
+#tabbtn .tab-default li.active .head {
+    border: 1px solid #e5993a;
+    background: url(../../views/backing_service/img/images_48.png) no-repeat #fff;
+}
+
+#tabbtn .head {
+    width: 120px;
+    height: 36px;
+    background: #eaebef;
+    display: inline-block;
+    line-height: 36px;
+}
+
+#tabbtn .tab-default .nav-tabs {
+    border: none;
+}
+
+#tabbtn .nav-tabs {
+    border: none;
+}
+ul,li,ol{
+    list-style: none;
+}
+.searchbill{
+    margin-bottom: 0px;
+}
+.meiy {
+    text-align: center;
+    /*height: 37px;*/
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.planb {
+    /*padding: 0 15px;*/
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.planb > span {
+    display: inline-block;
+}
+
+.meiyue {
+    width: 120px;
+    height: 36px;
+    display: inline-block;
+    line-height: 36px;
+    border: 1px solid #f6a540;
+    font-size: 16px;
+    border-radius: 2px;
+    font-weight: bold;
+    color: #f6a540;
+}
+.mianfei {
+    width: 60px;
+    height: 36px;
+    display: inline-block;
+    line-height: 36px;
+    border: 1px solid #57d1ea;
+    font-size: 16px;
+    border-radius: 2px;
+    font-weight: bold;
+    color: #57d1ea;
+}
+.plan p {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.plan button {
+    width: 180px;
+    height: 36px;
+    font-size: 16px;
+    border-radius: 2px;
+}
+
+.plan button:hover {
+    background: #e5993a;
+}
+
+.plan {
+    height: 300px;
+    border: 1px solid #e6e9f2;
+    text-align: center;
+}
+
+.plan figcaption {
+    background: #e6e9f2;
+}
+
+.plan figcaption, .plan .planb, .plan article {
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid #e6e9f2;
+    color: #5a6378;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+}
+
+.plan article {
+    /*padding: 0 12px;*/
+    margin-bottom: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.plan .planb {
+    font-size: 14px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 0;
+}
+
+#user .tab-content {
+    padding: 30px;
+
+}
+
+.buy {
+    font-size: 16px;
+    font-weight: bold;
+    color: #5a6378;
+    padding-left: 30px;
+    margin-bottom: 30px;
+}
+
+#user {
+    margin-top: 40px;
+}
+
+/*.nav-tabs > li {*/
+    /*width: 180px;*/
+    /*height: 50px;*/
+    /*text-align: center;*/
+/*}*/
+
+.tab-default li .nav-link {
+    height: 50px;
+}
+.subtitle {
+    font-size: 12px;
+}
+article .peie {
+    font-size: 12px;
+    font-weight:bold;
+}
+
+.circle {
+    width: 90px;
+    height: 90px;
+    /*background-color: cyan;*/
+    background: url(/app/pub/img/images_85.png);
+    border-radius: 45px;
+    margin: 25px auto;
+
+    /*margin-top: 25px;*/
+}
+.plan .notbuy {
+    font-size: 16px;
+    height: 28px;
+    line-height: 28px;
+    font-weight: bold;
+    color: #5a6378;
+    margin-bottom: 30px;
+}
+.userselect {
+    width: 120px;
+    margin-right: 50px;
+}
+.blod {
+    font-weight: bold;
+}
+.payway {
+    margin-right:30px;
+}
+#tabbtn .tab-content {
+    padding: 30px 0;
+    margin: 0 30px;
+    border: none;
+    border-top: 1px solid #eaebef;
+}
+.container-fluid:hover {
+    background-color: #f7f8fb;
+}
+.recycle {
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    margin-top: -1px;
+    display: inline-block;
+    background: url(../../pub/img/images_22.png)no-repeat;
+}
+.recycle:hover {
+    background: url(../../pub/img/images_24.png)no-repeat;
+}
+.content {
+    padding: 30px 0;
+    margin: 0 30px;
+    border: none;
+    border-bottom: 1px solid #eaebef;
+}
+.creattime {
+    padding-left: 30px;
+    font-size: 14px;
+    margin-bottom: 0;
+    /*color: #E6E9F2;*/
+}
+.content p{
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+.orglist {
+    padding: 30px 0px 0px 0px;
+    margin: 0 30px;
+}
+.orglist h3 {
+    font-size: 14px;
+    font-weight: bold;
+}
+.table tr th,
+.table tr td{
+    text-align: center;
+
+}
+.table>tbody>tr>td{
+    line-height: 34px;
+}
+.table .btns {
+    border: none;
+    width: 45px;
+    height: 24px;
+    padding: 0;
+    text-align: center;
+    line-height: 24px;
+    /*margin-left: 30px;*/
+}
+.table-default {
+    overflow: auto;
+}
+.table-responsive {
+    overflow: inherit;
+}
+.dropdown-select > .btn .caret {
+    top: 10px;
+    right: 7px;
+}
+.nav-link i{
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.planbg{
+    background: url(../../pub/img/planbg.png) no-repeat;
+    background-size:contain;
+}
+.nav-link:hover i.planbg{
+    background: url(../../pub/img/planbg_hover.png) no-repeat;
+    background-size:contain;
+}
+.active .planbg{
+    background: url(../../pub/img/planbg_hover.png) no-repeat;
+    background-size:contain;
+}
+.accountbg{
+    background: url(../../pub/img/account.png) no-repeat;
+    background-size:contain;
+}
+.nav-link:hover i.accountbg{
+    background: url(../../pub/img/account_hover.png) no-repeat;
+    background-size:contain;
+}
+.active .accountbg{
+    background: url(../../pub/img/account_hover.png) no-repeat;
+    background-size:contain;
+}
+.orgbg{
+    background: url(../../pub/img/orgbg.png) no-repeat;
+    background-size:contain;
+}
+.nav-link:hover i.orgbg{
+    background: url(../../pub/img/orgbg_hover.png) no-repeat;
+    background-size:contain;
+}
+.active .orgbg{
+    background: url(../../pub/img/orgbg_hover.png) no-repeat;
+    background-size:contain;
+}
+#leave {
+    color: white;
+}
+#remove {
+    color: white;
+}
+#leavefmem{
+    coloe: white;
+}
+#removefmem{
+    color: white;
+}
+.invitation:hover {
+    color: #469450;
+}

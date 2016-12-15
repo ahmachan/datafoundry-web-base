@@ -1,0 +1,23 @@
+<div class="date-pick">
+
+    <div uib-dropdown auto-close="outsideClick" is-open="opened">
+        <div uib-dropdown-toggle >
+            <input class="form-control" value="{{st | date: 'yyyy-MM-dd HH:mm'}}" placeholder="起始时间" />
+            <span style="color: #c9c9c9;"> — </span>
+            <input class="form-control" value="{{et | date: 'yyyy-MM-dd HH:mm'}}" placeholder="结束时间" />
+        </div>
+
+        <ul uib-dropdown-menu>
+            <li>
+                <uib-datepicker ng-model="dt" datepicker-options="datePickerOptions"></uib-datepicker>
+            </li>
+            <li>
+                开始:&nbsp;&nbsp;<uib-timepicker ng-model="st" ng-change="changed()" hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
+            </li>
+            <li>
+                结束:&nbsp;&nbsp;<uib-timepicker ng-model="et" ng-change="changed()" hour-step="1" minute-step="1" show-meridian="false"></uib-timepicker>
+            </li>
+        </ul>
+    </div>
+
+</div>

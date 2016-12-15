@@ -1,0 +1,101 @@
+#image .tab-default .tab-content {
+    padding: 30px;
+}
+.searchbar {
+    height: 36px;
+    border: 1px solid #c9c9c9;
+    border-radius: 2px;
+}
+.searchbar .form-control {
+    border: none;
+    box-shadow: none;
+    color: #5a6378;
+}
+.searchbar .btn {
+    height: 100%;
+    background: url(img/search.png) no-repeat;
+    box-shadow: none;
+}
+
+.searchbar .btn:hover {
+    background-image: url(img/search-focus.png);
+}
+.blank_tit{font-size:14px;color:#5a6378;margin-left:10px;vertical-align:middle;}
+.blank_block{margin-bottom:0;}
+
+/*.myimage{*/
+    /*background: url(../../pub/img/myimage.png) no-repeat;*/
+    /*background-size:contain;*/
+/*}*/
+/*.nav-link:hover i.myimage{*/
+    /*background: url(../../pub/img/myimageh.png) no-repeat;*/
+    /*background-size:contain;*/
+/*}*/
+/*.active .myimage{*/
+    /*background: url(../../pub/img/myimageh.png) no-repeat;*/
+    /*background-size:contain;*/
+/*}*/
+
+
+
+
+.collection{
+    background: url(../../pub/img/collection.png) no-repeat;
+    background-size:contain;
+}
+.nav-link:hover i.collection{
+    background: url(../../pub/img/collectionh.png) no-repeat;
+    background-size:contain;
+}
+.active .collection{
+    background: url(../../pub/img/collectionh.png) no-repeat;
+    background-size:contain;
+}
+.thumbnail {
+    overflow: hidden;
+    border: 1px solid #c9c9c9;
+    border-radius: 2px;
+    background: #eaebef;
+    padding: 0;
+}
+.thumbnail > .thumb-content {
+    overflow: hidden;
+    position: relative;
+    height: 131px;
+}
+.thumbnail > .thumb-content .thumb-slide {
+    position: absolute;
+    bottom: 0;
+    transition: bottom 0.3s;
+    text-align: center;
+    height: 262px;
+    width: 100%;
+}
+.thumbnail > .thumb-content .thumb-slide:hover {
+    bottom: -131px;
+}
+.thumbnail > .thumb-content > .thumb-slide > .thumb-op {
+    background: #5a6378;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    height: 131px;
+}
+.thumbnail > .thumb-content > .thumb-slide > .thumb-op > .thumb-btn {
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+.thumbnail > .thumb-content > .thumb-slide > img {
+    margin: 30px auto;
+}
+.thumbnail .caption {
+    background: #fff;
+    border-top: 1px solid #c9c9c9;
+    padding: 15px 0;
+    text-align: center;
+}
+.href-orange:hover {
+    color: #5a6378;
+}
+.image_jia_btn{margin-left:0px!important;margin-right:0px!important;}
+

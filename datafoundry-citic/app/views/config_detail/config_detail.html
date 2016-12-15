@@ -1,0 +1,207 @@
+<div class="config-detail">
+    <div class="loader" ng-show="!volume">
+        <div class="loader-inner ball-clip-rotate-multiple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div ng-show="volume">
+        <div class="panel panel-default" style="margin-bottom: 50px">
+            <div class="panel-heading">
+            <span class="panel-title">
+                <span class="icon25 configicon"></span>&nbsp;&nbsp;{{volume.metadata.name}}
+            </span>
+                <a class="btn btn-gray pull-right"
+                   style=" padding: 5px 10px; margin-left: 15px; height:34px; width:36px"
+                   ng-click="delete()"><i class="fa fa-trash-o fa-lg"></i></a>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="media media-sm">
+                            <div class="media-left">
+                                <img class="media-object" src="views/build_detail/img/images_104.png">
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">更新时间</h4>
+                                <small style="color: #5a6378;"
+                                       uib-tooltip="{{volume.metadata.creationTimestamp | timescon}}">
+                                    {{volume.metadata.creationTimestamp | dateRelative}}
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <uib-tabset class="tab-default" active="active">
+            <uib-tab index="1">
+                <uib-tab-heading>
+                    <i class="icon20 icon20-paper"></i> 配置卷信息
+                </uib-tab-heading>
+                <div class="row">
+                    <!--<label class="col-md-2 control-label tex-left" style="margin-top: 12px;color: #5a6378; font-size:14px; text-align: left; font-weight: normal">文件配置</label>-->
+                    <div class="col-md-2">
+                        <a href="javascript:;" ng-click="add()"
+                           style="line-height: 40px; margin-top: -20px;" class="href-add test11">
+                            <i class="fa fa-plus-circle fa-lg"></i>&nbsp;&nbsp;<span
+                                style="font-size: 12px">添加配置文件</span>
+                            <input type="file" id="file-input" value="选择"/>
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="javascript:;" ng-click="addConfig($index)" class="ceaeter"
+                           style="line-height: 40px; margin-top: -20px;">
+                            <i class="fa fa-plus-circle fa-green fa-lg"></i>
+                            <span class="font12" style="color: #55c45f">创建&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <!--<small ng-if="grid.keynull" class="err-tip"><i class="fa fa-info-circle"></i>&nbsp;key值或value值为空</small>-->
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-md-8" style="line-height: 40px;font-size: 12px;">
+                        <small ng-if="grid.keybuhefa" class="err-tip"><i class="fa fa-info-circle"></i>&nbsp;key值不合法
+                        </small>
+                        <small ng-if="grid.keychongfu" class="err-tip"><i class="fa fa-info-circle"></i>&nbsp;key值重复
+                        </small>
+                    </div>
+                    <!--<div class="col-md-10" style="margin-left:17%;" ng-repeat="item in volume.configarr">-->
+                    <!--<div class="filelink">{{item.key}}</div>-->
+                    <!--<div style="line-height: 36px;" class="col-md-1">-->
+                    <!--<a href="javascript:;" style="text-decoration: none; color: #9fa7b7; margin-left: 20px;"  ng-click="deletekv($index)" class="fa fa-times-circle "></a>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-2"></div>-->
+                    <div class="timeline col-md-12" style="margin-top: 20px;">
+                        <ul style="border: none;">
+                            <li ng-repeat="item in volume.configarr">
+                                <div class="container-fluid diantiao" style="margin-left: 0;">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <input style="width: 100%;" type="text" ng-model="item.key"
+                                                   placeholder="文件名称" style="background:none;border:1px solid #c9c9c9">
+                                            <!--{{item.key}}-->
+                                        </div>
+
+                                        <div class="col-sm-5">
+
+                                        </div>
+                                        <div class="col-sm-3 text-right">
+
+                                            <a class="icon25 icon25-collapse" uib-tooltip="查看日志"
+                                               ng-click="getLog($index)"
+                                               href="javascript:;"></a>
+
+                                            <a ng-click="deletekv($index)" class="icon25 icon25-delete" uib-tooltip="删除"
+                                               href="javascript:;"></a>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div uib-collapse="!item.showLog">
+                                    <div class="well well-log"
+                                         style='overflow: auto;background-color: #fff; margin-top: 15px;margin-left: 0;border: 1px solid #c9c9c9;'>
+                                        <textarea ng-model="item.value" rows="8" class="testt" id='sa'></textarea>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="col-md-12" style="margin-bottom: 20px;padding: 0;"
+                             ng-repeat="item in volume.configitems">
+                            <input class="col-md-5 key" type="text" placeholder="KEY" ng-model="item.key">
+                            <div class="col-md-1"></div>
+                            <textarea class="col-md-5 key" style="padding-left: 10px;border: 1px solid #c9c9c9;"
+                                      type="text" placeholder="VALUE" ng-model="item.value"></textarea>
+                            <a class="fa fa-times-circle col-md-1" ng-click="rmovekv($index)"
+                               style="text-decoration: none;text-align: center;line-height: 34px; color: #9fa7b7;"
+                               href="javascript:;"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--<hr>-->
+                <!--<div class="row">-->
+                <!--&lt;!&ndash;<label class="col-sm-2 control-label text-left" style="margin-top: 12px; color: #5a6378; font-size:14px; text-align: left; font-weight: normal">手动配置</label>&ndash;&gt;-->
+                <!--<div class="col-md-12" style="margin-top: 10px">-->
+
+                <!--<div class="configitem col-md-12" style="margin-top: 20px; margin-bottom: 20px">-->
+                <!--<div class="col-md-12" style="margin-bottom: 20px" ng-repeat="item in volume.configitems">-->
+                <!--<input class="form-control col-md-5" type="text" placeholder="KEY" ng-model="item.key">-->
+                <!--<input class="form-control col-md-5" type="text" placeholder="VALUE" ng-model="item.value">-->
+                <!--<a class="fa fa-times-circle col-md-2" ng-click="rmovekv($index)" style="text-decoration: none; color: #9fa7b7;" href="javascript:;"></a>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+            </uib-tab>
+        </uib-tabset>
+        <div class="row">
+            <div class="col-md-12">
+                <a href="javascript:;" ng-if="grid.configpost" class="btn btn-block create"
+                   style="background-color: #F8B551;margin: 0 auto; margin-top: 35px; color: white; width: 1000px;"
+                   ng-click="cearteconfig()">保存修改</a>
+                <a href="javascript:;" ng-if="!grid.configpost" disabled="disabled" class="btn btn-block create"
+                   style="background-color: #ccc; margin: 0 auto; margin-top: 35px; color: white; width: 1000px;">保存修改</a>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .test11 {
+        position: relative;
+    }
+
+    .href-add:hover {
+        color: #55c45f;
+    }
+
+    .testt {
+        font-size: 12px;
+        background: none;
+        border: none;
+        color: #333333;
+        height: 300px;
+        word-break: break-all;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        display: block;
+        max-height: 300px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .key {
+        height: 34px;
+        /*line-height: 34px;*/
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    #file-input {
+        position: absolute;
+        right: 0;
+        top: 0;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        width: 110px;
+        height: 24px
+    }
+
+    .diantiao:hover {
+        background-color: #f7f8fb;
+    }
+
+    .ceaeter:hover {
+        color: #469450;
+    }
+
+    .filelink {
+        width: 614px;
+        height: 36px;
+        line-height: 36px;
+        float: left;
+        border: 1px solid #ccc;
+        background: #EEE;
+
+    }
+</style>

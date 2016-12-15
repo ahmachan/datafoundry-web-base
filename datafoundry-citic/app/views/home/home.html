@@ -1,0 +1,370 @@
+<div id="home" style="margin-top: -55px;">
+    <style>
+        .head{width: 100%;  position: fixed;  z-index: 9999;background: #f8b551;height: 70px;}
+        #header {
+            width:1200px;margin:0 auto;height:auto;
+
+        }
+        ul{
+            list-style: none;
+        }
+        #header #header-brand {
+            height: 100%;
+            float: left;
+        }
+
+        #header #header-brand img {
+            padding-top: 11px;
+            padding-bottom: 7px;
+            height:63px;
+            width:138px;
+        }
+
+        #header .menu > li > a {
+            padding: 25px;
+            color: #fff;
+        }
+
+        #header .menu > li > a:hover,
+        #header .menu > li > a:focus {
+            background: none;
+            color:#fff;
+        }
+
+        #header .menu > li.active > a {
+            color:#3c4251;
+        }
+
+
+
+        #header .btn-green {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        #header .btn-border {
+            border: 1px solid #5a6378;
+            border-radius: 2px;
+            background: none;
+            color: #5a6378;
+        }
+
+        .loading-box {
+            position: fixed;
+            /*overflow: hidden;*/
+            top: 0;
+            left: 0;
+            height: 100%;
+            /*top:100px;*/
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+            z-index: 999;
+        }
+
+        /*loading 动画*/
+        .spinner {
+            margin: 250px auto;
+            width: 76px;
+            text-align: center;
+            display: block;
+        }
+
+        .spinner > div {
+            width: 30px;
+            height: 30px;
+            background-color: #f8b551;
+
+            border-radius: 100%;
+            display: inline-block;
+            -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+            animation: bouncedelay 1.4s infinite ease-in-out;
+            /* Prevent first frame from flickering when animation starts */
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+
+        .spinner .bounce1 {
+            -webkit-animation-delay: -0.32s;
+            animation-delay: -0.32s;
+        }
+
+        .spinner .bounce2 {
+            -webkit-animation-delay: -0.16s;
+            animation-delay: -0.16s;
+        }
+        .bslist{
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            position: absolute;
+            left: 0px;
+            top:70px;
+            margin:0px;
+            padding:0px;
+            text-align: center;
+            display: none;
+            height:auto;
+            border:1px solid #ccc;
+            border-bottom:none;
+        }
+        .bslist li{
+            border-bottom:1px solid #ccc;
+            cursor: pointer;
+            background: #fff;
+        }
+        .bslist li:hover{
+            background: #e6e9f2;
+        }
+        @-webkit-keyframes bouncedelay {
+            0%, 80%, 100% {
+                -webkit-transform: scale(0.0)
+            }
+            40% {
+                -webkit-transform: scale(1.0)
+            }
+        }
+
+        @keyframes bouncedelay {
+            0%, 80%, 100% {
+                transform: scale(0.0);
+                -webkit-transform: scale(0.0);
+            }
+            40% {
+                transform: scale(1.0);
+                -webkit-transform: scale(1.0);
+            }
+        }
+
+        .ifml a:link, .ifml a:visited {
+            display: inline-block;
+            width: 100%;
+            height: 17px;
+            line-height: 17px;
+            color: #fff;
+        }
+
+        .ftcon p {
+            color: #fff;
+            line-height: 24px;
+            text-align: left;
+        }
+
+        .dropdown {
+            alignment: right;
+            margin-top: -34px;
+            margin-right: -20px;
+        }
+
+        .navbar-collapse {
+            margin-top: 39px;
+            margin-right: -52px;
+            background-color: #f8b551;
+            width: 30%;
+        }
+
+        #mobilenav {
+            display: none;
+        }
+
+        .minformation p {
+            font-size: 14px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        #header #header-brand img{
+            padding-top:11px;
+        }
+        #header #header-brand {
+            padding-left: 0px;
+            padding-right: 40px;
+        }
+
+
+        .navbar-nav {
+            background-color: #f8b551;
+        }
+        /*.navbar-nav li{margin-top:-2px;}*/
+        .footer-lx p {
+            margin-bottom: 15px;
+            line-height: 30px;
+        }
+        .footer-td {
+            border-right: 1px solid #3d4458;
+        }
+        .nav .active {
+
+            /*background-color: red;*/
+            /*border-bottom:2px solid #f6a540;*/
+        }
+        .dropdownbw{
+            min-width:150px;
+        }
+        .dropdownbw li{
+            padding:5px 0px;text-align: center;
+            cursor: pointer;
+            color: #5a6378;
+        }
+        .dropdownbw li:hover{
+            background: #f8b551;
+        }
+        #bshd:hover > ul{
+            display: block;
+        }
+
+        /*20161017 jia add 页脚*/
+        .foot_main{width:100%;}
+        .foot{background:#5a6378;padding-bottom:40px;}
+        .foot_ps{width:1120px;margin:0 auto;}
+        ul,li,ol{list-style:none;margin:0;padding:0;}
+        .foot_list{padding-top:40px;height:auto;overflow:hidden; }
+        .fl_left{width:534px;border-right:1px solid #89909f;height:auto;overflow:hidden;float:left;}
+        .fl_left ul{float:left;text-align:left;width:145px;}
+        .fl_left ul:nth-child(2){width:110px;}
+        .fl_left ul:last-child{width:130px;}
+        .fl_left ul .fl_tit{font-size:16px;color:rgba(255,255,255,0.6);}
+        .fl_left ul .fl_detail a{font-size:14px;color:#fff;}
+        .fl_left ul .fl_detail a:hover{color:#f6a540;}
+        .fl_left ul li{margin-bottom:16px;}
+        .fl_left ul li:last-child{margin-bottom:0;}
+        .fl_right{float:left;margin-left:42px;width:544px;}
+        .fr_mail a{font-size:14px;color:rgba(255,255,255,0.6);text-decoration:underline!important;}
+        .fr_address{color:rgba(255,255,255,0.6);font-size:14px;}
+        .fr_address span{display:block;float:left;line-height:20px;font-size:14px;}
+        .fr_detail{float:left;}
+        .fr_detail p{margin-bottom:20px;}
+        .fr_detail i{background:url("pub/img/pic_info.png") no-repeat;display:block;width:18px;height:18px;float:left;margin-right:12px;}
+        .fr_address i{background-position:0%;}
+        .fr_mail i{background-position:100%;}
+        .fr_er{float:right;margin-left:40px;}
+        .pic_er{width:124px;height:122px;display:block;margin-bottom:10px;}
+        .er_detail{font-size:12px;color:#fff;text-align:center;}
+        .foot_copyright{background:#3d4458;height:68px;line-height:68px;}
+        .foot_copyright p{width:1120px;margin:0 auto;text-align:center;color:rgba(255,255,255,0.7);font-size:14px;}
+        .trans_color{-webkit-transition:  color 300ms;-ms-transition:  color 300ms;-o-transition:  color 300ms;-moz-transition:  color 300ms;transition:  color 300ms;}
+        /*20161017 jia add 页脚*/
+
+
+    </style>
+    <div class="head">
+    <div id="header">
+
+        <a id="header-brand" style="background-color:#f8b551;" href="#">
+            <img src="components/header/img/logo_big_df.png" alt="logo">
+        </a>
+        <form class="navbar-form navbar-right" style="margin-top: 23px;">
+            <button ng-if="!user" id='btnd' ng-click="login()" type="button" class="btn btn-green btn-border btn-xs"
+                    style="margin-right:5px;font-size: 14px;">登录
+            </button>
+            <button ng-if="!user" id='btnz' ng-click="regist()" type="button" class="btn btn-green btn-xs" style="font-size: 14px;">注册</button>
+            <a ng-if="user" id=btnk ui-sref="console.dashboard" ng-click="consolein()" class="btn btn-green btn-xs" style="font-size: 14px;">控制台</a>
+
+            <!--<div class="dropdown" ID="mobilenav">-->
+                <!--<button data-target=".navbar-collapse" style='margin-right: -13px;' data-toggle="collapse" class="navbar-toggle" type="button">-->
+                    <!--<span class="sr-only">切换导航</span>-->
+                    <!--<span style="background-color: #fff" class="icon-bar"></span>-->
+                    <!--<span style="background-color: #fff" class="icon-bar"></span>-->
+                    <!--<span style="background-color: #fff" class="icon-bar"></span>-->
+
+                <!--</button>-->
+                <!--<div class="navbar-collapse collapse navbar-right pull-right">-->
+                    <!--<ul class="nav navbar-nav" id="m-navs">-->
+                        <!--<li><a ui-sref="home.index" target="_blank" style="color: #fff;font-size: 16px;">首页</a></li>-->
+                        <!--&lt;!&ndash;-->
+                        <!--<li><a href="javascript:;" target="_blank" style="color: #fff;">应用市场</a></li>-->
+                        <!--<li><a href="javascript:;" target="_blank" style="color: #fff;">产品介绍</a></li>-->
+                        <!--<li><a href="javascript:;" target="_blank" style="color: #fff;">解决方案</a></li>-->
+                        <!--&ndash;&gt;-->
+                        <!--<li><a href="/docs" target="_blank" style="color: #fff;font-size: 16px;">帮助</a></li>-->
+                        <!--<li><a href="/blog" target="_blank" style="color: #fff;font-size: 16px;">博客</a></li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+        </form>
+        <ul class="nav navbar-nav menu navbar-right" ID="nav">
+            <!--<li ng-class="{active:whereclick==='首页'}"><a ui-sref="home.index" style="font-size: 16px;">首页</a></li>-->
+            <li ng-class="{active:whereclick==='首页'}"><a ui-sref="home.index" style="font-size: 16px;">首页</a></li>
+            <li ng-class="{active:whereclick==='价格'}"><a ui-sref="home.recharge" style="font-size: 16px;">价格</a></li>
+            <li ng-class="{active:whereclick==='应用市场'}"><a ui-sref="home.application"  style="font-size: 16px;">应用市场</a></li>
+            <li id="bshd" ng-class="{active:whereclick==='服务市场'}" style="position: relative;" ng-mouseenter="bsbten()" ng-mouseleave="bsbtout()">
+                <a ui-sref="home.index_backing_service" style="font-size: 16px;">服务市场</a>
+                <!--<ul class="bslist">-->
+                    <!--<li ng-repeat="region in regions" ng-click="chooseregion(region.identification)">{{region.region_describe}}</li>-->
+                    <!--&lt;!&ndash;<li>2</li>&ndash;&gt;-->
+                <!--</ul>-->
+            </li>
+            <li ng-class="{active:whereclick==='文档'}"><a href="/docs" target="_blank"  style="font-size: 16px;">文档</a></li>
+            <li ng-class="{active:whereclick==='博客'}"><a href="/blog" target="_blank" style="font-size: 16px;">博客</a></li>
+        </ul>
+    </div>
+    </div>
+    <!--loading-->
+    <!--<div class="loading-box" ng-show=loding>-->
+        <!--<img class="spinner" src="pub/img/loading.gif" alt="">-->
+    <!--</div>-->
+
+    <div ui-view></div>
+
+    <!-- 底部公共-->
+    <div class="foot_main">
+        <div class="foot">
+            <div class="foot_ps">
+                <div class="foot_list">
+                    <div class="fl_left">
+                        <ul>
+                            <li class="fl_tit">产品</li>
+                            <li class="fl_detail"><a ui-sref="home.index" class="trans_color">应用托管</a></li>
+                            <li class="fl_detail"><a ui-sref="home.index" class="trans_color">后端服务</a></li>
+                            <li class="fl_detail"><a ui-sref="home.index" class="trans_color">大数据能力</a></li>
+                            <li class="fl_detail"><a ui-sref="home.application" class="trans_color">Saas 服务</a></li>
+                            <li class="fl_detail"><a ui-sref="home.recharge" class="trans_color">定价服务</a></li>
+                        </ul>
+                        <ul>
+                            <li class="fl_tit">资源</li>
+                            <li class="fl_detail"><a href="/docs" target="_blank" class="trans_color">文档</a></li>
+                            <li class="fl_detail"><a href="/blog" target="_blank" class="trans_color">博客</a></li>
+                            <li class="fl_detail"><a ui-sref="home.builder" class="trans_color">视频</a></li>
+                        </ul>
+
+                        <ul>
+                            <li class="fl_tit">服务</li>
+                            <li class="fl_detail"><a ui-sref="home.builder" class="trans_color">专业培训</a></li>
+                            <li class="fl_detail"><a ui-sref="home.builder" class="trans_color">持续集成</a></li>
+                            <li class="fl_detail"><a ui-sref="home.builder" class="trans_color">微服务架构</a></li>
+                        </ul>
+                        <ul>
+                            <li class="fl_tit">关于我们</li>
+                            <li class="fl_detail"><a ui-sref="home.builder" class="trans_color">平台介绍</a></li>
+                            <li class="fl_detail"><a ui-sref="home.builder" class="trans_color">联系我们</a></li>
+                            <li class="fl_detail"><a ui-sref="home.builder" class="trans_color">加入我们</a></li>
+                            <li class="fl_detail"><a ui-sref="home.builder" class="trans_color">服务条款</a></li>
+                        </ul>
+                    </div>
+                    <div class="fl_right">
+                        <div class="fr_detail">
+                            <p class="fr_mail"><i></i><a href="mailto:datafoundry@asiainfo.com">datafoundry@asiainfo.com</a></p>
+                            <p class="fr_address"><i></i><span>北京市海淀区<br/>
+                            中关村软件园二期西北旺东路10号院亚信大厦</span></p>
+                        </div>
+
+                        <div class="fr_er">
+                            <div class="er_ma">
+                                <img src="pub/img/pic_er.png" class="pic_er">
+                                <p class="er_detail">发现更多 关注我们</p>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="foot_copyright">
+            <!--<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260628917'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260628917%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>-->
+            <p>&copy; 2016 版权所有 北京亚信智慧数据科技有限公司 京ICP备11005544号-15 京公网安备110108007119号</p></div>
+    </div>
+    <!-- 底部公共-->
+
+</div>
+</div>
+
+

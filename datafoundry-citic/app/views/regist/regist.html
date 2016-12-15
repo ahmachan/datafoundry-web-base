@@ -1,0 +1,277 @@
+<!--the origin regist-->
+<!--<div class='sjgf' ui-sref='home.index'>-->
+<!--</div>-->
+<div class="logboxworp">
+    <div class="loginL">
+        <img src="pub/img/00000.png" alt="" style="width: 220px;height: 220px;margin-top:80px;">
+        <div style="margin-top: 40px;font-size: 36px;color: #5a6378">铸数工坊</div>
+        <div style="font-size: 14px;color: #5a6378;margin-top: 10px;">极速铸造云端应用&nbsp;&nbsp;探究大数据应用之美</div>
+    </div>
+    <div class="registbox">
+        <div class="modal-header">
+            <h5 class="modal-title">
+                注册 DataFoundry 账号
+                <!--<a ng-click="cancel()" class="close"><span aria-hidden="true">&times;</span></a>-->
+            </h5>
+        </div>
+
+        <div class="modal-body " style="height: 570px; padding: 20px 35px 30px 35px;">
+            <form class="form-horizontal" name="frm">
+                <!--<button ng-click=look()>查看</button>-->
+                <p class="modal-msg text-left" style="margin: 0 0 5px 0;font-size:12px;color:#5a6378;">
+                    <span class="require">用户名</span>&nbsp;&nbsp;
+                    <small ng-if="credentials.usernamechange&&frm.username.$dirty && frm.username.$error.required"
+                           class="err-tip pull-right">
+                        <i class="fa fa-info-circle"></i>&nbsp;用户名不能为空
+                    </small>
+                    <small ng-if="credentials.usernamechange&&frm.username.$dirty && frm.username.$error.minlength"
+                           class="err-tip pull-right">
+                        <i class="fa fa-info-circle"></i>&nbsp;用户名太短
+                    </small>
+                    <small ng-if="credentials.usernamechange&&frm.username.$dirty && frm.username.$error.maxlength"
+                           class="err-tip pull-right">
+                        <i class="fa fa-info-circle"></i>&nbsp;用户名太长
+                    </small>
+                    <small ng-if="credentials.usernamechange&&frm.username.$dirty && frm.username.$error.pattern&&!frm.username.$error.maxlength&&!frm.username.$error.minlength"
+                           class="err-tip pull-right">
+                        <i class="fa fa-info-circle"></i>&nbsp;用户名只能包含小写字母和数字
+                    </small>
+                </p><!--ng-blur='usernamelose()'-->
+                <input type="text" name="username"
+                       class="form-control" style="font-size: 12px;"
+                       ng-blur="credentials.usernamechange=true"
+                       ng-focus="credentials.usernamechange=false"
+                       ng-model="credentials.username"
+                       onkeypress="if((event.keyCode > 31 && event.keyCode < 44) || (event.keyCode > 46 && event.keyCode < 48) || (event.keyCode > 57 && event.keyCode < 65) || (event.keyCode > 90 && event.keyCode < 97))event.returnValue = false;"
+                       required ng-minlength="4"
+                       ng-maxlength="30"
+                       ng-pattern="/^[a-z][a-z0-9-]{2,28}[a-z0-9]$/"/>
+
+                <p class="modal-msg text-left" style="margin: 20px 0 5px 0;font-size:12px;color:#5a6378;">
+                    <span class="require">邮箱</span>&nbsp;&nbsp;
+                    <small ng-if="credentials.emailchange&&frm.email.$dirty && frm.email.$error.required"
+                           class="err-tip pull-right">
+                        <i class="fa fa-info-circle"></i>&nbsp;邮箱不能为空
+                    </small>
+                    <small ng-if="credentials.emailchange&&frm.email.$dirty && frm.email.$error.pattern"
+                           class="err-tip pull-right">
+                        <i class="fa fa-info-circle"></i>&nbsp;这不是一个有效的邮箱
+                    </small>
+                </p>
+                <input type="email" style="font-size: 12px;"
+                       name="email"
+                       class="form-control"
+                       ng-blur="credentials.emailchange=true"
+                       ng-focus="credentials.emailchange=false"
+                       ng-model="credentials.email"
+                       onkeypress="if(event.keyCode===32)event.returnValue = false;"
+                       required
+                       ng-pattern="/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/"/>
+                <p class="modal-msg text-left" style="margin: 20px 0 5px 0;font-size:12px;color:#5a6378;">
+                    <span class="require">密码</span>&nbsp;&nbsp;
+                    <small ng-if="credentials.passwordchange&&frm.password.$dirty && frm.password.$error.required"
+                           class="err-tip pull-right">
+                        <i class="fa fa-info-circle"></i>&nbsp;密码不能为空
+                    </small>
+                    <small ng-if="credentials.passwordchange&&frm.password.$dirty && frm.password.$error.pattern"
+                           class="err-tip pull-right">
+                        <i class="fa fa-info-circle"></i>&nbsp;密码必须为8-18位的字母，数字，特殊符号
+                    </small>
+                </p>
+                <input type="password" style="font-size: 12px;"
+                       name="password"
+                       class="form-control"
+                       ng-blur="credentials.passwordchange=true"
+                       ng-focus="credentials.passwordchange=false"
+                       ng-model="credentials.password"
+                       onpaste="return false;"
+                       required
+                       ng-pattern="/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{8,18}$/"/>
+
+                <p class="modal-msg text-left" style="margin: 20px 0 5px 0;font-size:12px;color:#5a6378;">
+                    <span class="require">确认密码</span>&nbsp;&nbsp;
+                    <small ng-if="credentials.cfmPasswordchange&&frm.cfmPassword.$dirty && frm.cfmPassword.$error.required"
+                           class="err-tip pull-right">
+                        <i class="fa fa-info-circle"></i>&nbsp;确认密码不能为空
+                    </small>
+                    <small ng-if="credentials.cfmPasswordchange&&frm.cfmPassword.$dirty && credentials.password != credentials.cfmPassword"
+                           class="err-tip pull-right"><i class="fa fa-info-circle"></i>&nbsp;两次输入密码不相同
+                    </small>
+                </p>
+                <input name="cfmPassword" style="font-size: 12px;"
+                       type="password"
+                       ng-blur="credentials.cfmPasswordchange=true"
+                       ng-focus="credentials.cfmPasswordchange=false"
+                       class="form-control"
+                       ng-model="credentials.cfmPassword" required/>
+                <p class="modal-msg text-left" style="margin: 20px 0 5px 0;font-size:12px;color:#5a6378;">
+                    <span class="require">验证码</span>&nbsp;&nbsp;
+                    <small ng-if="credentials.yzmchange&&frm.code.$dirty && frm.code.$error.required"
+                           class="err-tip pull-right">
+                        <i class="fa fa-info-circle"></i>&nbsp;验证码不能为空
+                    </small>
+                    <small ng-if="credentials.yzmchange&&credentials.codeerror"
+                           class="err-tip pull-right"><i class="fa fa-info-circle"></i>&nbsp;验证码不正确
+                    </small>
+                </p>
+                <div style="position: relative; height: 40px;width: 100%;">
+                    <input name="code" style="float: left;width: 50%;font-size: 12px;"
+                           type="text"
+                           ng-blur="credentials.yzmchange=true"
+                           ng-focus="credentials.yzmchange=false"
+                           class="form-control"
+                           ng-model="code" required/>
+                    <div ng-click="changecode()" class="code">{{yzcode}}</div>
+                </div>
+
+                <!--<p class='xieyi'>-->
+                    <!--<a href="javascript:;" ng-class="{'active': xieyi}" ng-click="xieyi=!xieyi"-->
+                       <!--style="text-decoration: none;color: #5a6378;font-size: 12px;">-->
+                        <!--<i class="faa faa-check"></i>&nbsp;&nbsp;我已阅读并接受《DataFoundry的会员服务协议》-->
+                    <!--</a>-->
+                <!--</p>-->
+
+
+                <button class="btn btn-block btn-disabled" id="regist" ng-disabled="frm.$invalid"
+                        ng-class="{'btn-orange':!credentials.codeerror&&credentials.password === credentials.cfmPassword&&frm.$valid, 'btn-disabled': credentials.codeerror&&!xieyi&&credentials.password !== credentials.cfmPassword||frm.$invalid}"
+                        ng-click="!credentials.codeerror&&credentials.password === credentials.cfmPassword&&frm.$valid && regist()"
+                        style="margin: 20px 0 0 0;">
+                    注册
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<!--<div style="margin:0 auto; padding-top: 70px; padding-bottom: 30px; width: 460px; position:relative">-->
+<!--<div class="line">-->
+<!--</div>-->
+<!--<img id="footerimg" src="views/login/img/image_09.png">-->
+<!--</div>-->
+</div>
+
+<style>
+    .sjgf {
+        background: url('pub/img/login.png') no-repeat;
+        width: 205px;
+        height: 60px;
+        margin: 0 auto;
+        /*margin-top: 60px;*/
+        background-size: contain;
+    }
+
+    #header {
+        display: none;
+    }
+
+    body {
+        background-color: #5a6378;
+    }
+
+    .code {
+        /*background-color: rebeccapurple;*/
+        width: 50%;
+        height: 34px;
+        float: left;
+        text-align: center;
+        word-spacing:8px;
+        letter-spacing:8px;
+        font-size: 20px;
+        line-height: 34px;
+        cursor: pointer;
+    }
+
+    .modal-body {
+        background-color: #fff;
+
+    }
+
+    .registbox {
+        background-color: #f7f8fb;
+        width: 360px;
+        height: 490px;
+        float: left;
+    }
+
+    .modal-header {
+        background-color: #E6E9F2;
+        color: #5a6378;
+
+    }
+
+    .modal-title {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .modal-default {
+        margin-top: -200px;
+    }
+
+    .xieyi {
+        height: 30px;
+        line-height: 30px;
+        margin-bottom: 0;
+        margin-top: 10px;
+    }
+
+    .line {
+        width: 100%;
+        border-bottom: 1px solid #c9d0e2;
+    }
+
+    #footerimg {
+        /*background-color: #f7f8fb;*/
+        position: absolute;
+        top: 56px;
+        left: 45%;
+        height: 30px;
+        width: 50px;
+        z-index: 5;
+        padding: 0px 10px;
+    }
+
+    .logboxworp {
+        width: 810px;
+        margin: 0 auto;
+        margin-top: 60px;
+        overflow: hidden;
+        /*height: 490px;*/
+        height: 570px;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -245px;
+        margin-left: -405px;
+    }
+
+    .loginL {
+        width: 449px;
+        /*height: 490px;*/
+        height: 590px;
+        float: left;
+        background: #dadfec;
+        text-align: center;
+    }
+
+    .btn-disabled {
+        background: #dadfec;
+        color: #5a6378;
+    }
+
+    .btn-disabled:hover {
+        background: #dadfec;
+        color: #5a6378;
+    }
+</style>
+
+<!--<div class="modal-header">-->
+<!--<h5 class="modal-title">-->
+<!--注册-->
+<!--<a ng-click="cancel()" class="close"><span aria-hidden="true">&times;</span></a>-->
+<!--</h5>-->
+<!--</div>-->
+<!--<div class="modal-body" style="padding: 20px 40px 30px 40px;">-->
+<!--<p>请发送 NT 账号、邮箱名、部门名称、产品名称至邮箱 <a href="mailto:datafoundry@asiainfo.com?Subject=申请账号">datafoundry@asiainfo.com</a> 申请账号。</p>-->
+<!--</div>-->

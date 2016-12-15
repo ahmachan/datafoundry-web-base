@@ -1,0 +1,140 @@
+<div class="recharge">
+    <div class="loader" ng-if="!firplan">
+        <div class="loader-inner ball-clip-rotate-multiple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div ng-if="firplan">
+        <div class="recharge_main">
+            <img class="plan_pic_bt" src="views/home/recharge/image/plan_pic_bt.png">
+            <p class="h_tit">为您提供简单 高性价比的套餐方案</p>
+            <div class="tab_area">
+                <li class="active">铸造一区</li>
+                <li>铸造二区</li>
+            </div>
+            <div class="list">
+                <ul class="list_one">
+                    <li ng-repeat="plan in firplan">
+                        <div class="p_block trans_all">
+                            <div class="p_tp">
+                                <p class="name_tit name_basic"><img src="views/home/recharge/image/{{plan.plan_name}}.png"></p>
+                                <p class="mon_tit"><span class="money">￥</span><span class="num">{{plan.price}}</span><span class="every_money">&nbsp;元/月</span></p>
+                                <p class="hour_tit">≈ {{plan.hour}}元/小时</p>
+                            </div>
+                            <div class="p_md">
+                                <div class="cpu_tit">
+                                    <img src="views/home/recharge/image/pic_cpu.png" class="pic_cpu">
+                                    <p class="cpu_detail">
+                                        <span class="cpu_name">CPU</span>
+                                        <span class="cpu_core">{{plan.description}}</span>
+                                    </p>
+                                </div>
+                                <div class="cpu_tit">
+                                    <img src="views/home/recharge/image/pic_rom.png" class="pic_cpu">
+                                    <p class="cpu_detail">
+                                        <span class="cpu_name">内存</span>
+                                        <span class="cpu_core">{{plan.description2}}</span>
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </li>
+
+                    <!--<li>-->
+                    <!--<div class="p_block trans_all">-->
+                    <!--<div class="p_tp">-->
+                    <!--<p class="name_tit name_max"><img src="views/home/recharge/image/max.png"></p>-->
+                    <!--<p class="mon_tit"><span class="money">￥</span><span class="num">469</span><span class="every_money">&nbsp;元/月</span></p>-->
+                    <!--<p class="hour_tit">≈ 0.63元/小时</p>-->
+                    <!--</div>-->
+                    <!--<div class="p_md">-->
+                    <!--<div class="cpu_tit">-->
+                    <!--<img src="views/home/recharge/image/pic_cpu.png" class="pic_cpu">-->
+                    <!--<p class="cpu_detail">-->
+                    <!--<span class="cpu_name">CPU</span>-->
+                    <!--<span class="cpu_core"><i>2</i> cpu core</span>-->
+                    <!--</p>-->
+                    <!--</div>-->
+                    <!--<div class="cpu_tit">-->
+                    <!--<img src="views/home/recharge/image/pic_rom.png" class="pic_cpu">-->
+                    <!--<p class="cpu_detail">-->
+                    <!--<span class="cpu_name">内存</span>-->
+                    <!--<span class="cpu_core"><i>8</i> GB</span>-->
+                    <!--</p>-->
+                    <!--</div>-->
+
+                    <!--</div>-->
+
+                    <!--</div>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<div class="p_block trans_all">-->
+                    <!--<div class="p_tp">-->
+                    <!--<p class="name_tit name_pro"><img src="views/home/recharge/image/pro.png"></p>-->
+                    <!--<p class="mon_tit"><span class="money">￥</span><span class="num">1699</span><span class="every_money">&nbsp;元/月</span></p>-->
+                    <!--<p class="hour_tit">≈ 2.28元/小时</p>-->
+                    <!--</div>-->
+                    <!--<div class="p_md">-->
+                    <!--<div class="cpu_tit">-->
+                    <!--<img src="views/home/recharge/image/pic_cpu.png" class="pic_cpu">-->
+                    <!--<p class="cpu_detail">-->
+                    <!--<span class="cpu_name">CPU</span>-->
+                    <!--<span class="cpu_core"><i>4</i> cpu core</span>-->
+                    <!--</p>-->
+                    <!--</div>-->
+                    <!--<div class="cpu_tit">-->
+                    <!--<img src="views/home/recharge/image/pic_rom.png" class="pic_cpu">-->
+                    <!--<p class="cpu_detail">-->
+                    <!--<span class="cpu_name">内存</span>-->
+                    <!--<span class="cpu_core"><i>16</i> GB</span>-->
+                    <!--</p>-->
+                    <!--</div>-->
+
+                    <!--</div>-->
+
+                    <!--</div>-->
+                    <!--</li>-->
+                </ul>
+
+                <ul class="list_one" style="display:none">
+                    <li ng-repeat="plan in seaplan">
+                        <div class="p_block trans_all">
+                            <div class="p_tp">
+                                <p class="name_tit name_basic"><img src="views/home/recharge/image/{{plan.plan_name}}.png"></p>
+                                <p class="mon_tit"><span class="money">￥</span><span class="num">{{plan.price}}</span><span class="every_money">&nbsp;元/月</span></p>
+                                <p class="hour_tit">≈ {{plan.hour}}元/小时</p>
+                            </div>
+                            <div class="p_md">
+                                <div class="cpu_tit">
+                                    <img src="views/home/recharge/image/pic_cpu.png" class="pic_cpu">
+                                    <p class="cpu_detail">
+                                        <span class="cpu_name">CPU</span>
+                                        <span class="cpu_core">{{plan.description}}</span>
+                                    </p>
+                                </div>
+                                <div class="cpu_tit">
+                                    <img src="views/home/recharge/image/pic_rom.png" class="pic_cpu">
+                                    <p class="cpu_detail">
+                                        <span class="cpu_name">内存</span>
+                                        <span class="cpu_core">{{plan.description2}}</span>
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </li>
+                </ul>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

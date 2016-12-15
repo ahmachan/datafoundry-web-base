@@ -1,0 +1,327 @@
+<div id="image">
+    <div class="loader" ng-if="!testlist">
+        <div class="loader-inner ball-clip-rotate-multiple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div ng-if="testlist">
+        <uib-tabset class="tab-default" active="check">
+            <uib-tab index="1">
+                <uib-tab-heading>
+                    <i class="noticebg myimage"></i>&nbsp;&nbsp;构建镜像
+                </uib-tab-heading>
+                <div class="row image_jia_btn" style="margin-bottom: 30px;">
+                    <div class="input-group col-sm-4 col-sm-offset-8 searchbar">
+                        <input type="text" class="form-control" ng-model="txt"
+                               ng-focus="showTip=true;" placeholder="搜索镜像" ng-keyup="search('all', txt)">
+                    <span class="input-group-btn">
+                        <a class="btn" ng-click="search('all', txt)"></a>
+                    </span>
+                    </div>
+                </div>
+                <div class="row image_jia_btn">
+                    <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="item in testlist">
+                        <c-card></c-card>
+                    </div>
+
+                    <div style="text-align: center;background:#f7f8fb;position:relative;border:1px solid #ccc;padding-top:15px;padding-bottom:15px;"
+                         ng-if="testlist.length===0"><p class="blank_block"><img src="pub/img/df_cion.png"><span class="blank_tit"> {{text1}}</span></p></div>
+
+                </div>
+                <div class="text-right" ng-if="grid.total > 8">
+                    <uib-pagination
+                            ng-model="grid.page"
+                            ng-show='fyshow'
+                            total-items="grid.total"
+                            items-per-page="grid.size"
+                            class="pagination-sm"
+                            boundary-links="true"
+                            max-size="12"
+                            rotate="true"
+                            previous-text="上一页"
+                            next-text="下一页"
+                            first-text="首页"
+                            last-text="末页">
+                    </uib-pagination>
+                </div>
+            </uib-tab>
+            <uib-tab index="2">
+                <uib-tab-heading>
+                    <i class="noticebg registimage"></i>&nbsp;&nbsp;私有镜像
+                </uib-tab-heading>
+                <div>
+                    <div class="row image_jia_btn" style="margin-bottom: 30px;">
+                        <div class="input-group col-sm-4 col-sm-offset-8 searchbar">
+                            <input type="text" class="form-control" ng-model="txxt" ng-focus="showTip=true;"
+                                   placeholder="搜索镜像" ng-keydown="searchreg('all', txxt,$event)">
+                    <span class="input-group-btn">
+                        <a class="btn" ng-click="searchreg('all', txxt)"></a>
+                    </span>
+                        </div>
+                    </div>
+                    <div class="row image_jia_btn">
+                        <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="item in repertorys">
+                            <div class="thumbnail">
+                                <div class="thumb-content">
+                                    <div class="thumb-slide">
+                                        <div class="thumb-op">
+                                            <p><i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{item.lasttag.Created | dateRelative}}</p>
+                                            <p><i class="fa fa-flag-o"></i>&nbsp;&nbsp;<!--{{gitStore[item.spec.output.to.name]["ref"]}} - -->
+                                                {{item.lasttag.Parent | limitTo: 7}}</p>
+                                            <p class="thumb-btn">
+                                                <a class="btn btn-green"
+                                                   ng-if='item.canbuid'
+                                                   href="javascript:;"
+                                                   ui-sref="console.service_create({image:item.name+':latest'+':registryjump'})">部署最新版本</a>
+                                                <a class="btn btn-gray"
+                                                   ng-if='!item.canbuid'
+                                                   href="javascript:;"
+                                                   disabled='ture'>暂无最新版本</a>
+
+                                            </p>
+                                        </div>
+                                        <img src="components/card/img/image.png" alt="image">
+                                    </div>
+                                </div>
+                                <div class="caption">
+                                    <a class="href-orange" style='white-space:nowrap;overflow: hidden;text-overflow: ellipsis' ui-sref="console.image_regstry({name:item.name,bc:item.name})">{{item.name}}</a>
+                                </div>
+
+                            </div>
+                            <!--<c-card></c-card>-->
+                        </div>
+
+                        <div style="text-align: center;background:#f7f8fb;position:relative;border:1px solid #ccc;padding-top:15px;padding-bottom:15px;" ng-if="repertorys.length===0"><p class="blank_block"><img src="pub/img/df_cion.png"><span class="blank_tit"> {{text2}}</span></p></div>
+
+                    </div>
+                    <div class="text-right" ng-if="grid.repertorystotal > 8">
+                        <uib-pagination
+                                ng-model="grid.repertoryspage"
+                                total-items="grid.repertorystotal"
+                                items-per-page="grid.size"
+                                class="pagination-sm"
+                                boundary-links="true"
+                                boundary-link-numbers="true"
+                                max-size="3"
+                                force-ellipses="'3'"
+                                rotate="true"
+                                previous-text="上一页"
+                                next-text="下一页"
+                                first-text="首页"
+                                last-text="末页">
+                        </uib-pagination>
+                    </div>
+                    <!--列表样式-->
+                    <!--<div class="panel-group" role="tablist" aria-multiselectable="true" style="margin-bottom: 0;">-->
+                    <!--<div class="panel panel-default" style='margin-bottom: 30px;box-shadow: none; border-radius: 2px;'-->
+                    <!--ng-repeat="bsisv in newtext" ng-show='bsisv.items'>-->
+                    <!--<div href="#{{bsisv.name}}" data-toggle="collapse" class="panel-heading"-->
+                    <!--style='background:#f7f8fb;padding: 14px 30px 15px 23px;' role="tab" aria-expanded='true'>-->
+                    <!--<h4 class="panel-title">-->
+                    <!--<a href="#{{bsisv.name}}" data-toggle="collapse"-->
+                    <!--class="accordion-toggle" aria-expanded='true'>-->
+                    <!--<i class="fa pull-right icon25 icon25-collapse"-->
+                    <!--style="color: #5a6378; margin-top: -4px" uib-tooltip="查看"></i>-->
+                    <!--</a>-->
+                    <!--<span class="label label-default"-->
+                    <!--style='font-size: 14px;background:#f7f8fb; color: #5a6378;'>-->
+                    <!--<a href="#{{bsisv.name}}" data-toggle="collapse"-->
+                    <!--class="accordion-toggle"-->
+                    <!--style='font-size: 14px; color: #5a6378;'>{{bsisv.name}}</a>-->
+                    <!--</span>-->
+                    <!--<span uib-tooltip="{{bsisv.creation_time | timescon}}"-->
+                    <!--style='position: absolute;font-weight: 400; margin-top: 4px; left: 50%; text-align: center; font-size: 12px; color: #5a6378;'>-->
+                    <!--创建时间:&nbsp;{{bsisv.creation_time | dateRelative}}-->
+                    <!--</span>-->
+                    <!--</h4>-->
+
+                    <!--</div>-->
+                    <!--<div id="{{bsisv.name}}" class="panel-collapse"-->
+                    <!--ng-class="{'collapse':opened}"-->
+                    <!--role="tabpanel" aria-expanded='true'>-->
+                    <!--<div class="panel-body" style='padding-top: 20px;'>-->
+                    <!--<div>-->
+                    <!--<div class="row">-->
+                    <!--&lt;!&ndash;<div class="col-xs-12" ng-repeat="item in bsisv.items">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<c-card item="item" gitStore="gitStore"></c-card>&ndash;&gt;-->
+                    <!--<ul class="list-group col-xs-12" style='margin: 0;box-shadow:none;padding-left: 30px; padding-right: 30px;' ng-repeat="item in bsisv.items">-->
+                    <!--<li class="list-group-item">-->
+                    <!--<a class="href-orange"-->
+                    <!--ui-sref="console.image_detail({name:item, bc:item})">-->
+                    <!--{{item}}-->
+                    <!--</a>-->
+                    <!--</li>-->
+                    <!--</ul>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="row">-->
+                    <!--<div class="col-sm-3 col-xs-6" ng-repeat="item in [1]">-->
+                    <!--<c-card item="item" gitStore="gitStore"></c-card>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                </div>
+            </uib-tab>
+            <uib-tab index="3">
+                <uib-tab-heading>
+                    <i class="noticebg imagecenter"></i>&nbsp;&nbsp;公共镜像
+                </uib-tab-heading>
+                <div class="row" style="margin-bottom: 30px;position: relative;">
+                    <div class="fenlei col-sm-6">
+                        <label>提供者</label>
+                        <!--<div class="btn-group fw">-->
+
+                        <div class="btn-group fw" style="margin-left: 30px;" ng-repeat='item in serviceper'>
+                            <label class="btn pull-left sc" ng-class="{'active':grid.vendor == item.class}"
+                                   ng-click="selectsc('vendor',item.class)">{{item.name}}</label>
+                        </div>
+
+                    </div>
+                    <div class="input-group col-sm-4 col-sm-offset-8 searchbar" id="sousuo">
+                        <input type="text" class="form-control" ng-model="ctxt"
+                               ng-focus="showTip=true;" placeholder="搜索镜像" ng-keyup="imagecenterreg('all', ctxt,$event)">
+                    <span class="input-group-btn">
+                        <a class="btn" ng-click="imagecenterreg('all', ctxt)"></a>
+                    </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="item in imagecenter">
+                        <imagecard></imagecard>
+                    </div>
+                </div>
+                <div style="text-align: center;background:#f7f8fb;position:relative;border:1px solid #ccc;padding-top:15px;padding-bottom:15px;" ng-if="imagecenter.length===0"><p class="blank_block"><img src="pub/img/df_cion.png"><span class="blank_tit"> {{text3}}</span></p></div>
+                <div class="text-right" ng-if="grid.imagecentertotal > 8">
+                    <uib-pagination
+                            ng-model="grid.imagecenterpage"
+                            total-items="grid.imagecentertotal"
+                            items-per-page="grid.size"
+                            class="pagination-sm"
+                            boundary-links="true"
+                            boundary-link-numbers="true"
+                            max-size="3"
+                            force-ellipses="'3'"
+                            previous-text="上一页"
+                            next-text="下一页"
+                            first-text="首页"
+                            last-text="末页"
+                            rotate="true">
+                    </uib-pagination>
+                </div>
+            </uib-tab>
+            <uib-tab index="4" ng-if="false">
+                <uib-tab-heading>
+                    <i class="noticebg collection"></i>&nbsp;&nbsp;我的收藏
+                </uib-tab-heading>
+                <div class="row" style="margin-bottom: 30px;">
+                    <div class="input-group col-sm-4 col-sm-offset-8 searchbar">
+                        <input type="text" class="form-control" ng-model="txt"
+                               ng-focus="showTip=true;" placeholder="搜索镜像" ng-keyup="search('all', txt)">
+                    <span class="input-group-btn">
+                        <a class="btn" ng-click="search('all', txt)"></a>
+                    </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="item in testlist">
+                        <c-card></c-card>
+                    </div>
+                </div>
+                <div class="text-right" ng-if="grid.total > 10">
+                    <uib-pagination
+                            ng-model="grid.page"
+                            ng-show='fyshow'
+                            total-items="grid.total"
+                            items-per-page="grid.size"
+                            class="pagination-sm"
+                            boundary-links="true"
+                            force-ellipses="'3'"
+                            max-size="12"
+                            rotate="true"
+                            previous-text="上一页"
+                            next-text="下一页"
+                            first-text="首页"
+                            last-text="末页">
+                    </uib-pagination>
+                </div>
+            </uib-tab>
+            <!--
+            <uib-tab index="3" heading="DockerHub镜像">
+                <div class="text-center" style="padding: 130px 0 200px 0;">
+                    <p style="font-size: 16px;color: #5a6378;">Docker镜像 一键搜索</p>
+
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <c-search></c-search>
+                        </div>
+                    </div>
+                </div>
+            </uib-tab>
+            -->
+        </uib-tabset>
+    </div>
+
+</div>
+<style>
+    .fenlei label {
+        font-size: 12px;
+        font-weight: normal;
+    }
+    .fenlei .sc {
+        background-color: #E6E9F2;
+        color: white;
+    }
+    .fenlei .btn {
+        font-size: 12px;
+        font-weight:normal;
+        background-color: #EAEBEF;
+        color:#0f0f0f;
+    }
+    /*.fl :first-child{*/
+        /*margin-left: 30px;*/
+        /*margin-right: 30px;*/
+    /*}*/
+    .fenlei .btn.active {
+        border-color: #f6a540;
+        box-shadow: inset 0 0px 0px rgba(0,0,0,.125);
+        font-weight: bold;
+        background: url(views/backing_service/img/images_48.png) no-repeat #fff;
+        color: black;
+    }
+    .list-group-item {
+        height: 40px;
+        line-height: 40px;
+        border: none;
+        border-radius: 0;
+        margin: 0;
+        padding: 0;
+        display: block;
+        border-bottom: 1px solid #d4d4d4;
+    }
+
+    .list-group-item a {
+        font-size: 12px;
+        color: #f6a540;
+        font-weight: bold;
+    }
+
+    .list-group-item a:hover {
+        color: #e5993a;
+    }
+    #sousuo {
+        position: absolute;
+        right: 16px;
+    }
+    /*.fw:last-child .btn {*/
+         /*width: 112px;*/
+    /*!*}*!*/
+    .list-group-item:last-child {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+</style>

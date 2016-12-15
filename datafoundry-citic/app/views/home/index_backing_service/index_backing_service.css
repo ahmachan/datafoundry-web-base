@@ -1,0 +1,25 @@
+.idx-bs{
+    padding:100px 40px 0px;
+    background: #f7f8fb;
+    overflow: hidden;
+    color: #5a6378;
+}
+.idx-bs .sc .btn {
+    background: #eaebef none repeat scroll 0 0;
+    border: 1px solid #eaebef;
+    border-radius: 2px;
+    color: #333;
+    font-size: 12px;
+    text-align: center;
+    width: 85px;
+}
+.idx-bs .sc .btn.active {
+    background: #fff url("../../views/backing_service/img/images_48.png") no-repeat scroll 0 0;
+    border-color: #f6a540;
+    font-weight: bold;
+}
+.fen {
+    float: left;
+    padding: 0 15px;
+    width: 25%;
+}

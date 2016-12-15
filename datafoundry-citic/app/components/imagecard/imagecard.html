@@ -1,0 +1,41 @@
+<div class="thumbnail">
+    <div class="thumb-content">
+        <div class="thumb-slide">
+            <div class="thumb-op">
+                <p><i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{item.lasttag.Created | dateRelative}}</p>
+                <p><i class="fa fa-flag-o"></i>&nbsp;&nbsp;<!--{{gitStore[item.spec.output.to.name]["ref"]}} - -->
+                    {{item.lasttag.Parent | limitTo: 7}}</p>
+                <p class="thumb-btn">
+                    <a class="btn btn-green"
+                       ng-if='item.lasttag.Created'
+                       href="javascript:;"
+                       ui-sref="console.service_create({image:item.name+':latest'})">部署最新版本</a>
+                    <a class="btn btn-gray"
+                       ng-if='!item.lasttag.Created'
+                       href="javascript:;"
+                       disabled='ture'>暂无最新版本</a>
+
+                </p>
+            </div>
+            <img src="components/card/img/image.png" alt="image">
+        </div>
+    </div>
+    <div class="caption">
+        <a class="href-orange" style='white-space:nowrap;overflow: hidden;text-overflow: ellipsis' ui-sref="console.image_Public({name:item.name,bc:item.name})">{{item.name}}</a>
+        <div  ng-if="false">
+        <span class="download" style="margin-right: 60px;margin-top: 10px;">
+            <i class="down" ng-class="{'active':checkedd}" ng-click="checkedd=!checkedd"></i>123
+        </span>
+        <span class="stars">
+            <i class="star" ng-class="{'active':checkeds}" ng-click="checkeds=!checkeds"></i>123
+        </span>
+
+            <!--<span id="updateTime"></span>-->
+            <!--<p id="releaseVersion"></p>-->
+            <!--<span><button id="deployLastest">部署最新版本</button></span>-->
+        </div>
+    </div>
+
+</div>
+
+

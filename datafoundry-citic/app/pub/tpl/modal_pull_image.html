@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <h5 class="modal-title">
+        <span class="fa fa-arrow-circle-o-down fa-lg" style="color:#3c4251;"></span>
+        拉取镜像
+        <a ng-click="cancel()" class="close"><span aria-hidden="true">&times;</span></a>
+    </h5>
+</div>
+<div class="modal-body" style="padding: 20px 40px;">
+    <p class="modal-msg text-left" style="margin-bottom: 15px;">镜像版本:&nbsp;&nbsp;{{name}}</p>
+    <input type="text" class="form-control" ng-model="cmd">
+    <small class="modal-tip" ng-if="tip" style="float: left;margin: 5px;">
+        <span class="icon12 icon12-tip"></span>{{tip}}
+    </small>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-orange" clipboard text="cmd" on-copied="success()" on-error="fail(err)">复制</button>
+</div>

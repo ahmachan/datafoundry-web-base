@@ -1,0 +1,74 @@
+<div class="pod-config">
+    <h2>Pod</h2>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="panel panel-default sub-panel" ng-repeat="container in item.dc.spec.template.spec.containers">
+                <div class="panel-heading">
+                    {{container.name}}
+                </div>
+                <div class="panel-body">
+                    <h3>镜像信息</h3>
+                    <p>镜像:&nbsp;&nbsp;{{container.image | imageStreamName}}</p>
+                    <p>Tag:&nbsp;&nbsp;{{container.image}}</p>
+                    <hr>
+
+                    <div ng-if="container.volumeMounts.length">
+                        <h3>挂载secret卷</h3>
+                        <div class="row" ng-repeat="vm in container.volumeMounts" style="margin-bottom: 15px;">
+                            <div class="col-md-5">
+                                <input ng-model="vm.name" type="text" class="form-control" disabled>
+                            </div>
+                            <div class="col-md-5">
+                                <input ng-model="vm.mountPath" type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <h3>端口信息</h3>
+                    <div class="row">
+                        <div class="col-md-5" ng-repeat="port in container.ports">
+                            <span class="tag">{{port.protocol}}</span>
+                            <span class="tag">{{port.containerPort}}</span>
+                            <span class="tag">{{port.servicePort}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <h2>服务高可用</h2>
+    <div class="row">
+        <div class="col-md-2">
+            POD数量:&nbsp;{{item.dc.spec.replicas}}
+        </div>
+        <div class="col-md-2">
+            重启策略:&nbsp;{{item.dc.spec.template.spec.restartPolicy}}
+        </div>
+    </div>
+    <hr>
+
+    <h2 ng-if="bindingBsi.length">后端服务绑定</h2>
+    <div class="row" ng-if="bindingBsi.length">
+        <div class="col-md-2" ng-repeat="bs in bindingBsi">
+            {{bs}}
+        </div>
+    </div>
+    <hr ng-if="bindingBsi.length">
+
+    <h2>自动部署</h2>
+    <div>
+        <span ng-repeat="trigger in item.dc.spec.triggers">
+            <span ng-switch="trigger.type">
+                <span ng-switch-when="ImageChange">
+                    <input type="checkbox" checked disabled>&nbsp;&nbsp;镜像变化触发自动部署&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+                <span ng-switch-when="ConfigChange">
+                    <input type="checkbox" checked disabled>&nbsp;&nbsp;配置变化触发自动部署&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+            </span>
+        </span>
+    </div>
+</div>

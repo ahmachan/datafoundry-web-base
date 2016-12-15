@@ -1,0 +1,245 @@
+.application{
+    padding:100px 40px 0px;
+    background: #f7f8fb;
+    overflow: hidden;
+    color: #5a6378;
+}
+.panel-default > .panel-heading{
+    color: #5a6378;
+}
+.cptitle{
+    font-size: 18px;
+}
+.cpleft{
+    width:78%;
+    overflow: hidden;
+    float: left;
+}
+.cpright{
+    width: 22%;
+    overflow:hidden;
+    float: left;
+    padding-left: 30px;
+}
+.cptable{
+    text-align: center;
+    padding-top:20px;
+    padding-bottom: 40px;
+}
+.cptable span{
+    background: #fff;
+}
+.cptable span.active{
+    background: #f8b551;
+    color: #fff;
+}
+.cptable span{
+    width: 300px;
+    height: 40px;
+    line-height:40px;
+    display: inline-block;
+    cursor: pointer;
+}
+.color-orange{
+    cursor: pointer;
+    color: #f6a540;
+}
+.color-orange:hover{
+    color:#e5993a;
+}
+.dropdown{
+    margin:0px;
+}
+.row{
+    margin:0px;
+}
+.contitle{
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    padding:0px 15px;
+    margin:15px 0px;
+}
+.col-sm-6{
+    padding:0px;
+}
+.fen {
+    float: left;
+    padding: 0 15px;
+    width: 25%;
+}
+.thumbnail {
+    overflow: hidden;
+    border: 1px solid #c9c9c9;
+    border-radius: 2px;
+    background: #eaebef;
+    padding: 0;
+}
+.thumbnail > .thumb-content {
+    overflow: hidden;
+    position: relative;
+    height: 131px;
+}
+.thumbnail > .thumb-content .thumb-slide {
+    position: absolute;
+    bottom: 0px;
+    transition: bottom 0.3s;
+    text-align: center;
+    height: 262px;
+    width: 100%;
+}
+.thumbnail > .thumb-content .thumb-slide:hover {
+    bottom: -131px;
+}
+.thumbnail > .thumb-content .thumb-slide small {
+    font-size: 12px;
+    color: #ffffff;
+    margin: 10px 10px;
+    display: inline-block;
+    height: 30px;
+}
+.thumbnail > .thumb-content > .thumb-slide > .thumb-op {
+    background: #5a6378;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    height: 131px;
+}
+.thumbnail > .thumb-content > .thumb-slide > .thumb-op > .thumb-btn {
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+.thumbnail > .thumb-content > .thumb-slide > .imageholder1 {
+    margin: 30px auto;
+    width:77px;
+}
+
+.thumbnail .caption {
+    background: #fff;
+    border-top: 1px solid #c9c9c9;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.thumb-content span {
+    margin-right: 10px;
+}
+.thumb-content img {
+    margin-right: 10px;
+}
+.thumb-content p {
+    font-size: 12px;
+    font-weight:normal;
+}
+.caption p {
+    font-size: 14px;
+}
+.btn-orange1{
+    width: 120px;
+    height: 36px;
+    line-height: 36px;
+    background-color: #f6a540;
+    padding:0px;
+}
+.btn-orange1:hover {
+    background-color: #f8b551;
+}
+.btn-skyblue{
+    width: 120px;
+    height:36px;
+    line-height: 36px;
+    padding:0px;
+}
+.hotcon{
+    width: 100%;
+    height: 100px;
+    padding:20px;
+    position: relative;
+}
+.hotcon:hover{
+    background: #f7f8fb;
+}
+.hot-top-name{
+    font-size: 18px;
+    text-align: center;
+}
+.hotconname{
+    color: #f6a540;
+    font-weight: bold;
+    cursor: pointer;
+}
+.hotconname:hover{
+    color: #5a6378;
+}
+.listidx{
+    width: 24px;
+    height: 24px;
+    background: #f6a540;
+    border-radius:12px;
+    position: absolute;
+    top:11px;
+    left:2px;
+    color: #fff;
+    line-height:24px;
+    text-align: center;
+    z-index: 99;
+}
+.hotlistimg{
+    margin-top:21px;
+    width: 60px;height: 60px;
+    background: url("img/DF-09.png") center center no-repeat;
+    background-color: #eaebef;
+    background-size:40px 40px;
+}
+.hotimgtab span{
+    width: 80px;
+    height: 24px;
+    line-height:24px;
+    display: inline-block;
+    cursor: pointer;
+    background: #fff;
+}
+.hotimgtab span.hotactive{
+    background: #f6a540;
+    color: #fff;
+}
+.imgwrop{
+    width: 60px;
+    height: 60px;
+    background: url("img/DF-09.png") center center no-repeat;
+    background-size:cover;
+    position: absolute;
+    top:0px;
+    left:0px;
+}
+.imgwrop1{
+    width: 60px;
+    height: 60px;
+    background: url("img/DF-10.png") center center no-repeat;
+    background-size:cover;
+    position: absolute;
+    top:0px;
+    left:0px;
+}
+
+.fenlei .sc {
+    background-color: #e6e9f2;
+    color: white;
+}
+.fenlei .btn {
+    background-color: #eaebef;
+    color: #0f0f0f;
+    font-size: 12px;
+    font-weight: normal;
+}
+.fenlei .btn.active {
+    background: #fff url("img/images_48.png") no-repeat scroll 0 0;
+    border-color: #f6a540;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.125) inset;
+    color: black;
+    font-weight: bold;
+}
+.thumbnail > .thumb-content > .thumb-slide > img {
+    margin: 30px auto;
+}

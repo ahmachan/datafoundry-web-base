@@ -1,0 +1,54 @@
+<div class="plan_block">
+    <div class="loader" ng-show="!plans">
+        <div class="loader-inner ball-clip-rotate-multiple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div ng-show="plans">
+        <div class="plan_block_main">
+            <img class="plan_pic_bt" src="views/plan/image/plan_pic_bt.png">
+            <div class="list" style="margin:0 auto;padding:0;">
+                <ul>
+                    <li ng-repeat="plan in plans">
+                        <div class="p_block trans_all">
+                            <div class="p_tp">
+                                <p class="name_tit name_basic">
+                                    <img src="views/plan/image/{{plan.plan_name}}.png">
+                                </p>
+                                <p class="mon_tit"><span class="money">￥</span><span class="num">{{plan.price}}</span><span
+                                        class="every_money">&nbsp;元/月</span></p>
+                                <p class="hour_tit">≈ {{plan.hour}}元/小时</p>
+                            </div>
+                            <div class="p_md">
+                                <div class="cpu_tit">
+                                    <img src="views/plan/image/pic_cpu.png" class="pic_cpu">
+                                    <p class="cpu_detail">
+                                        <span class="cpu_name">CPU</span>
+                                        <span class="cpu_core">{{plan.description}}</span>
+                                    </p>
+                                </div>
+                                <div class="cpu_tit">
+                                    <img src="views/plan/image/pic_rom.png" class="pic_cpu">
+                                    <p class="cpu_detail">
+                                        <span class="cpu_name">内存</span>
+                                        <span class="cpu_core">{{plan.description2}}</span>
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        <span ng-if="plan.canbuy==='small'||plan.canbuy==='big'" class="buy_btn trans_background"
+                              ng-click="buy(plan)">立即购买</span>
+                            <span ng-if="plan.canbuy==='check'" class="buy_btn buyed_btn trans_background">已购买</span>
+                        </div>
+                    </li>
+                </ul>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

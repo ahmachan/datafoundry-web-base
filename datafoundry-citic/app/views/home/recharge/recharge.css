@@ -1,0 +1,66 @@
+.recharge{overflow: hidden;padding-top: 70px;}
+/*购买套餐页面*/
+/*公共样式*/
+html,body{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+img{border:0 none;height:auto; max-width: 100%;}
+ol,ul,li{list-style:none;margin:0;}
+:focus{outline:0;}
+a{ color:inherit;}
+textarea{resize:none;overflow:auto;}
+a{-webkit-touch-callout:none;-webkit-user-select:none;text-decoration:none}
+table{border-collapse: collapse;border-spacing: 0;}
+input{ border:none;}
+input:focus,textarea:focus{outline:0}
+/*动画过度效果*/
+.trans_all{-webkit-transition:  all 600ms;-ms-transition:  all 600ms;-o-transition:  all 600ms;-moz-transition:  all 600ms;transition:  all 600ms;}
+.trans_background{-webkit-transition:  all 300ms;-ms-transition:  all 300ms;-o-transition:  all 300ms;-moz-transition:  all 300ms;transition:  all 300ms;}
+/*针对套餐页面*/
+.recharge_main{background:#3c4b65;height:718px;font:12px "微软雅黑",Helvetica;position:relative;}
+.recharge_main p{margin:0;}
+.list{width:920px;margin:0 auto;height:560px;position:absolute;bottom:0;left:0;right:0;}
+.list li{width:300px;}
+.list .p_block{width:300px;position:absolute;bottom:0;
+    -webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;
+    -webkit-border-bottom-left-radius:0;-moz-border-bottom-left-radius:0;border-bottom-left-radius:0;
+    -webkit-border-bottom-right-radius:0;-moz-border-bottom-right-radius:0;border-bottom-right-radius:0;}
+.plan_pic_bt{position:absolute;bottom:0;left:0;right:0;}
+/*模块公共内容样式*/
+.p_block{padding-top:25px;}
+.recharge_main .name_tit{font-size:14px;color:#fff;text-align:center;width:206px;height:30px;margin-left:22px;}
+.name_tit img{width:206px;height:30px;}
+.p_tp{padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.5);margin-left:40px;margin-right:40px;}
+.mon_tit{color:#fff;text-align:center;padding-top:47px;}
+.mon_tit .every_money{font-size:14px;font-weight:normal;}
+.mon_tit .money{font-size:30px;font-weight:normal;}
+.mon_tit .num{font-size:36px;font-weight:bold;}
+.hour_tit{font-size:14px;color:#fff;text-align:center;}
+.p_md{margin-left:40px;margin-right:40px;}
+.cpu_tit{border-bottom:1px solid rgba(255,255,255,0.5);padding-top:10px;padding-bottom:20px;}
+.pic_cpu{float:left;width:62px;height:62px;}
+.recharge_main .cpu_detail{float:left;margin-left:26px;margin-top:6px;}
+.cpu_detail span{display:block;}
+.cpu_name{font-size:14px;color:#fff;padding-bottom:10px;}
+.cpu_core{font-size:14px;color:#5a6378;}
+.cpu_core i{font-size:18px;font-style: normal;}
+.cpu_tit{clear:both;overflow:hidden;padding-left:20px;padding-right:20px;}
+
+
+.list li:nth-child(1) .p_block{height:420px;left:0;background:#f8b551;}
+.list li:nth-child(2) .p_block{height:480px;left:310px;background:#f8b551;}
+.list li:nth-child(3) .p_block{height:420px;right:0;background:#f8b551;}
+.list li:nth-child(1):hover .p_block{height:460px;background:#f6a540;}
+.list li:nth-child(2):hover .p_block{height:520px;background:#f6a540;}
+.list li:nth-child(3):hover .p_block{height:460px;background:#f6a540;}
+/*已订购套餐*/
+
+.buyed_btn,.buyed_btn:hover{border:1px solid rgba(255,255,255,0.6);background:none;color:#fff;cursor:default;color:rgba(255,255,255,0.6)}
+
+.tab_area{width:300px;height:38px;margin:20px auto 0;line-height:38px;}
+.tab_area li{width:150px;float:left;text-align:center;cursor:pointer;font-size:14px;color:#fff;border:1px solid #fff;font-size:16px;}
+.tab_area li:nth-child(1){border-right:0;-webkit-border-top-left-radius:2px;-moz-border-top-left-radius:2px;border-top-left-radius:2px;
+    -webkit-border-bottom-left-radius:2px;-moz-border-bottom-left-radius:2px;border-bottom-left-radius:2px;}
+.tab_area li:nth-child(2){-webkit-border-top-right-radius:2px;-moz-border-top-right-radius:2px;border-top-right-radius:2px;
+    -webkit-border-bottom-right-radius:2px;-moz-border-bottom-right-radius:2px;border-bottom-right-radius:2px;}
+.tab_area li.active{background:#fff;color:#5a6378;font-size:16px;}
+.recharge_main .h_tit{font-size:36px;text-align:center;padding-top:50px;color:#fff;}
+

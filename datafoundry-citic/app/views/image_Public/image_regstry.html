@@ -1,0 +1,140 @@
+<div class="image-restry">
+    <div class="loader" ng-show="!items">
+        <div class="loader-inner ball-clip-rotate-multiple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div ng-show="items">
+        <div class="panel panel-default" style="margin-bottom: 50px">
+            <div class="panel-heading">
+            <span class="panel-title">
+                <span class="icon25 icon25-panel-repository">
+                </span>&nbsp;&nbsp;{{name}}
+            </span>
+                <a class="btn pull-right btn-green"
+                   ng-if="items.length>0"
+                   ng-disabled=false
+                   ui-sref="console.service_create({image:name+':'+items[0].tag+':registryjump'})">部署最新版本</a>
+                <a class="btn pull-right btn-orange"
+                   ng-if="items.length==0"
+                   ng-disabled=true>暂无最新版本</a>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="media media-sm">
+                            <div class="media-left">
+                                <i class="fa fa-clock-o fa-2x"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">更新时间</h4>
+                                <small uib-tooltip="{{items[0].tagcen.Created | timescon}}">
+                                    {{items[0].tagcen.Created  | dateRelative}}
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="media media-sm">
+                            <div class="media-left">
+                                <i class="fa fa-flag-o fa-2x"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">最新版本</h4>
+                                <small>
+                                <span>
+                                {{name}}:{{items[0].tag | limitTo: 7}}
+                            </span>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <uib-tabset class="tab-default">
+                <uib-tab index="1" ng-if="false">
+                    <uib-tab-heading>
+                        <i class="fa fa-file-o fa-lg"></i>&nbsp;&nbsp;概览
+                    </uib-tab-heading>
+                    <!--<div marked="readme || '暂无介绍'"></div>-->
+                </uib-tab>
+                <uib-tab index="2">
+                    <uib-tab-heading>
+                        <i class="fa fa-file-text-o fa-lg"></i>&nbsp;&nbsp;镜像版本
+                    </uib-tab-heading>
+                    <div class="timeline">
+                        <ul>
+                            <li ng-repeat="item in items">
+                                <label uib-tooltip="{{item.tagcen.Created | timescon}}">
+                                    <span class="dot"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {{item.tagcen.Created | dateRelative}}
+                                </label>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div style='white-space:nowrap;overflow: hidden;text-overflow: ellipsis'>
+                                                <i class="fa fa-flag-o"></i>&nbsp;
+                                                <!--<span ng-if="item.spec.revision.git.ref">-->
+                                                <span>{{name}}:{{item.tag | limitTo: 7}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+
+                                        </div>
+                                        <div class="col-sm-4 text-right">
+                                            <a class="icon25 icon25-download" uib-tooltip="拉取" href="javascript:;"
+                                               ng-click="pull(item.tag)"></a>
+                                            <a class="icon25 icon25-start" uib-tooltip="部署"
+                                               ui-sref="console.service_create({image:name+':'+item.tag+':registryjump'})"></a>
+                                            <!--<a class="icon25 icon25-start" uib-tooltip="部署" ui-sref="console.service_create()"></a>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+
+</div>
+<style>
+    .creattime {
+        width: 26px;
+        height: 26px;
+        display: inline-block;
+        background: url("pub/img/clock.png")no-repeat;
+    }
+    .shoucang {
+        width: 26px;
+        height: 26px;
+        display: inline-block;
+        background: url("pub/img/shoucang.png")no-repeat;
+    }
+    .pulls {
+        width: 26px;
+        height: 26px;
+        display: inline-block;
+        background: url("pub/img/pull.png")no-repeat;
+    }
+
+    .star {
+        display: inline-block;
+        cursor: pointer;
+        width: 13px;
+        height: 13px;
+        background:url("pub/img/star.png");
+    }
+
+    .star:hover{
+        background:url("pub/img/starh.png");
+    }
+
+    .star.active {
+        background:url("pub/img/starh.png");
+    }
+</style>

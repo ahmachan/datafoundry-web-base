@@ -1,0 +1,72 @@
+.thumbnail {
+    overflow: hidden;
+    border: 1px solid #c9c9c9;
+    border-radius: 2px;
+    background: #eaebef;
+    padding: 0;
+}
+.thumbnail > .thumb-content {
+    overflow: hidden;
+    position: relative;
+    height: 131px;
+}
+.thumbnail > .thumb-content .thumb-slide {
+    position: absolute;
+    bottom: 0;
+    transition: bottom 0.3s;
+    text-align: center;
+    height: 262px;
+    width: 100%;
+}
+.thumbnail > .thumb-content .thumb-slide:hover {
+    bottom: -131px;
+}
+.thumbnail > .thumb-content > .thumb-slide > .thumb-op {
+    background: #5a6378;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    height: 131px;
+}
+.thumbnail > .thumb-content > .thumb-slide > .thumb-op > .thumb-btn {
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+.thumbnail > .thumb-content > .thumb-slide > img {
+    margin: 30px auto;
+}
+.thumbnail .caption {
+    background: #fff;
+    border-top: 1px solid #c9c9c9;
+    padding: 15px 0;
+    text-align: center;
+}
+.href-orange:hover {
+    color: #5a6378;
+}
+.down {
+    display: inline-block;
+    cursor: pointer;
+    width: 13px;
+    height: 13px;
+    background:url("../../pub/img/down.png");
+}
+.down:hover {
+    background:url("../../pub/img/downh.png");
+}
+.down.active {
+    background:url("../../pub/img/downh.png");
+}
+.star {
+    display: inline-block;
+    cursor: pointer;
+    width: 13px;
+    height: 13px;
+    background:url("../../pub/img/star.png");
+}
+.star:hover{
+    background:url("../../pub/img/starh.png");
+}
+.star.active {
+    background:url("../../pub/img/starh.png");
+}

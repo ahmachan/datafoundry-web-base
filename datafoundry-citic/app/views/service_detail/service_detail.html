@@ -1,0 +1,102 @@
+<div class="build-detail">
+    <div class="loader" ng-show="!dc">
+        <div class="loader-inner ball-clip-rotate-multiple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+<div ng-show="dc">
+    <div class="panel panel-default" style="margin-bottom: 50px">
+        <div class="panel-heading">
+            <span class="panel-title">
+                <i class="faa faa-cmd"></i>&nbsp;&nbsp;{{dc.metadata.name}}&nbsp;&nbsp;
+                <span ng-if="dc.state == 'normal'" style="color: #55c45f;">运行中</span>
+            </span>
+            <a class="btn btn-gray pull-right" style=" padding: 5px 10px; margin-left: 15px; height:34px; width:36px" ng-click="delete()"><i class="fa fa-trash-o fa-lg"></i></a>
+            <!--<a class="btn btn-block"-->
+            <!--ng-disabled=dianbl-->
+            <!--ng-class="{'btn-orange':dianl, 'btn-disabled': dianbl}"-->
+            <!--ng-click="frm.$valid && create()">开始构建</a>-->
+            <a class="btn pull-right"
+               ng-show="dc.state != 'normal'"
+               ng-class="{'btn-green':startBtn.dianl, 'btn-orange': startBtn.dianlz}"
+               ng-disabled=startBtn.dianlz
+               ng-click="startDc()">{{startBtn.name}}</a>
+            <a class="btn pull-right"
+               ng-show="dc.state == 'normal'"
+               ng-class="{'btn-green':stopBtn.dianl, 'btn-orange': stopBtn.dianlz}"
+               ng-disabled=stopBtn.dianlz
+               ng-click="stopDc()">{{stopBtn.name}}</a>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="media media-sm">
+                        <div class="media-left">
+                            <i class="faa faa-clock"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">创建时间</h4>
+                            <small style="color: #5a6378;"  uib-tooltip="{{dc.metadata.creationTimestamp | timescon}}">{{dc.metadata.creationTimestamp | dateRelative}}</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="media media-sm">
+                        <div class="media-left">
+                            <i class="faa faa-code"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">路由URL</h4>
+                            <small>
+                                <a class="href-orange text-overflow" ng-if="dc.state == 'normal'" href="http://{{dc.route.spec.host}}" target="_blank">{{dc.route.spec.host}}</a>
+                                <a class="href-orange text-overflow" style="color: #5B6177;cursor: no-drop;" ng-if="dc.state !== 'normal'" target="_blank">{{dc.route.spec.host}}</a>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="media media-sm">
+                        <div class="media-left">
+                            <i class="faa faa-pod"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">pod个数(正常/期望)</h4>
+                            <small><span style="color: #f6a540">{{dc.status.replicas || 0}}</span>/{{getdc.spec.replicas}}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <uib-tabset class="tab-default" active="active">
+        <uib-tab index="1">
+            <uib-tab-heading>
+                <i class="faa faa-edit"></i> 部署事件
+            </uib-tab-heading>
+            <div ng-include="'views/service_detail/service_event.html'"></div>
+        </uib-tab>
+        <uib-tab index="2">
+            <uib-tab-heading>
+                <i class="faa faa-target"></i>服务信息
+            </uib-tab-heading>
+            <div ng-include="'views/service_detail/service_ctrl.html'"></div>
+
+        </uib-tab>
+        <uib-tab index="3">
+            <uib-tab-heading>
+                <i class="faa faa-mark"></i> 部署记录
+            </uib-tab-heading>
+            <div ng-include="'views/service_detail/history.html'"></div>
+        </uib-tab>
+        <uib-tab index="4">
+            <uib-tab-heading>
+                <i class="faa faa-text"></i> 配置信息
+            </uib-tab-heading>
+            <div ng-include="'views/service_detail/service_config.html'"></div>
+        </uib-tab>
+    </uib-tabset>
+</div>
+
+</div>

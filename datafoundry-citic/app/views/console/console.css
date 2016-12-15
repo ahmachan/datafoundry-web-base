@@ -1,0 +1,33 @@
+#console .navbar-toggle {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: #efefef;
+    border-radius: 0;
+}
+
+#console #sidebar-container {
+    width: 200px;
+    padding: 0;
+    position:fixed;/*侧边栏固定*/
+}
+
+
+#console #sidebar-right-fixed {
+    overflow: hidden;
+    padding: 40px 40px;
+    min-height: 600px;
+    margin-left: 200px;
+}
+
+@media (max-width: 758px) {
+    #console #sidebar-container {
+        width: 100%;
+    }
+
+    #console #sidebar-right-fixed {
+        overflow: hidden;
+        padding: 15px;
+    }
+}

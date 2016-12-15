@@ -1,0 +1,43 @@
+<div class="backing-service-detail">
+    <div class="loader" ng-show="!data">
+        <div class="loader-inner ball-clip-rotate-multiple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div ng-show="data">
+        <div class="info">
+            <div class="info-image" style='background-image: url({{data.spec.metadata.imageUrl}});background-repeat:no-repeat;background-position: center'>
+            </div>
+            <div class="info-desc">
+                <h2 ng-bind="data.metadata.name"></h2>
+                <p>类型: {{ltype}}</p>
+                <p>提供者: {{data.spec.metadata.providerDisplayName}}</p>
+                <!--<p>版本: </p>-->
+                <p>服务文档: <a href="{{data.spec.metadata.supportUrl}}" target="view_window" class="href-orange">{{data.spec.metadata.supportUrl}}</a></p>
+                <p>帮助文档: <a href="{{data.spec.metadata.documentationUrl}}" target="view_window" class="href-orange">{{data.spec.metadata.documentationUrl}}</a></p>
+            </div>
+        </div>
+
+        <uib-tabset class="tab-default" active="grid.active">
+            <uib-tab index="1">
+                <uib-tab-heading>
+                    <i class="faa faa-edit"></i>&nbsp;&nbsp;服务信息
+                </uib-tab-heading>
+                <p style="font-size: 12px;color: #5a6378;line-height: 20px;">
+                    {{data.spec.metadata.longDescription}}
+                </p>
+                <h3 style="font-size: 14px;color: #5a6378;margin-top: 36px;">套餐列表</h3>
+                <div ng-include="'views/backing_service_detail/plan.html'"></div>
+            </uib-tab>
+
+            <uib-tab index="2">
+                <uib-tab-heading>
+                    <i class="faa faa-edit"></i>&nbsp;&nbsp;已申请的实例
+                </uib-tab-heading>
+                <div ng-include="'views/backing_service_detail/applied_instance.html'"></div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+
+</div>

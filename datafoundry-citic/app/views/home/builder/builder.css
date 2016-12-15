@@ -1,0 +1,30 @@
+.builder{overflow: hidden;padding-top: 70px;height:600px;}
+
+
+
+.df_block{position:absolute;text-align:center;left:50%;top:42%;width:214px;height:308px;margin-top:-154px;margin-left:-107px;}
+.pic_df{width:150px;height:150px;}
+.build_cion{display:block;position:absolute;right:-42px;top:16px;}
+.build_cion i{width:3px;height:3px;-webkit-border-radius:50%;background:#666;display:block;float:left;margin-right:6px;
+    -webkit-animation:myfirst 5s linear 2s infinite alternate;}
+.builder_tit{margin-top:30px;margin-bottom:20px;font-size:18px;text-align:center;position:relative;colr:#5a6378;}
+.home_back{width:100px;height:38px;margin:0 auto;line-height:38px;background:#f6a540;display:block;text-align:center;font-size:16px;color:#fff;
+-webkit-border-radius:3px;-webkit-transition:all 1s}
+.home_back:hover{color:#fff;background:#e5993a;}
+/*¼ÓÔØÐ§¹û*/
+.load_ing>i{width:6px;height:6px;background-color:#5a6378;border-radius:100%;display:inline-block;-webkit-animation:
+bouncedelay 1.4s infinite ease-in-out;animation:bouncedelay 1.4s infinite ease-in-out;
+    -webkit-animation-fill-mode:both;animation-fill-mode:both}
+.load_ing .load_one{-webkit-animation-delay:-.32s;animation-delay:-.32s}
+.load_ing .load_two{-webkit-animation-delay:-.16s;animation-delay:-.16s}
+@-webkit-keyframes bouncedelay{0%,80%,to{-webkit-transform:scale(0)}
+    40%{-webkit-transform:scale(0.6)}
+}
+@keyframes bouncedelay{0%,80%,to{transform:scale(0);-webkit-transform:scale(0)}
+    40%{transform:scale(0.6);-webkit-transform:scale(0.6)}
+}
+
+@media (min-width: 1920px) {
+    .builder{height:700px;}
+
+}
