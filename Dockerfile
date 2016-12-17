@@ -17,6 +17,8 @@ RUN apk add --update nodejs git && \
     npm install -g bower && \
     echo '{ "allow_root": true }' > /root/.bowerrc && \
     git config --global url."https://".insteadOf git:// && \
+    npm install && \
+    bower install && \
     rm -rf /var/cache/apk/* /tmp/*
 
 EXPOSE 80 
