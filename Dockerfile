@@ -5,7 +5,7 @@ MAINTAINER Zonesan <chaizs@asiainfo.com>
 
 ADD . /
 
-WORKDIR /datafoundry-citic
+WORKDIR /datafoundry
 
 # Install nginx & node
 # Install Bower
@@ -19,7 +19,7 @@ RUN apk add --update nodejs git && \
     git config --global url."https://".insteadOf git:// && \
     npm install && \
     bower install && \
-    rm -rf /var/cache/apk/* /tmp/*
+    rm -rf /var/cache/apk/* /tmp/* /root/.cache /root/.npm
 
 EXPOSE 80 
 
