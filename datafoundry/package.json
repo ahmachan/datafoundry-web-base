@@ -1,22 +1,26 @@
 {
-  "name": "angular-seed",
-  "version": "1.0.0",
-  "description": "angular seed",
-  "main": "index.js",
-  "scripts": {
-    "build": "node node_modules/.bin/r.js -o conf/build.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lanyuechen/angular-seed.git"
-  },
-  "author": "lanyuechen",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lanyuechen/angular-seed/issues"
-  },
-  "homepage": "https://github.com/lanyuechen/angular-seed#readme",
-  "devDependencies": {
-    "requirejs": "^2.1.22"
-  }
+    "name": "angular-seed",
+    "version": "1.0.0",
+    "description": "angular seed",
+    "main": "index.js",
+    "scripts": {
+        "build": "node node_modules/.bin/r.js -o conf/build.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lanyuechen/angular-seed.git"
+    },
+    "author": "lanyuechen",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/lanyuechen/angular-seed/issues"
+    },
+    "homepage": "https://github.com/lanyuechen/angular-seed#readme",
+    "devDependencies": {
+        "requirejs": "^2.1.22",
+        "lodash": "3.10.1"
+    },
+    "dependencies": {
+        "angular-tree-control": "^0.2.28"
+    }
 }
